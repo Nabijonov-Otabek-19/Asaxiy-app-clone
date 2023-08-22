@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="asaxiy_clone"
+        android:label="Asaxiy clone"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
