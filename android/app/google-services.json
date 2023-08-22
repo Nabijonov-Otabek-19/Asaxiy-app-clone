@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "171520694865",
+    "project_id": "asaxiy-clone-f0d30",
+    "storage_bucket": "asaxiy-clone-f0d30.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:171520694865:android:1e12854fa13ac4cb86f670",
+        "android_client_info": {
+          "package_name": "uz.nabijonov.otabek.asaxiy_clone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "171520694865-sefh6seono2j05qjeer5kp8vi7rrvbbf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCx_iexpQ_3t41ciNEBD9_iydWZ70Uwm-A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "171520694865-sefh6seono2j05qjeer5kp8vi7rrvbbf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
