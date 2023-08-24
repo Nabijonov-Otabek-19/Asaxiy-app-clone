@@ -59,12 +59,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
-  final pages = [
-    const HomeScreen(),
-    const MenuScreen(),
-    const CartScreen(),
-    const OrderScreen(),
-    const ProfileScreen(),
+  static const pages = <Widget>[
+    HomeScreen(),
+    MenuScreen(),
+    CartScreen(),
+    OrderScreen(),
+    ProfileScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -76,7 +76,10 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[_selectedIndex],
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: pages,
+      ),
       bottomNavigationBar: myNavBar(),
     );
   }

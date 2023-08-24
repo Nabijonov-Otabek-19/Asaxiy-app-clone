@@ -8,4 +8,6 @@ abstract class Repository {
       String category);
 
   Future<ApiResponse<List<ProductModel>>> getNewProducts();
+
+  Future<ApiResponse<List<MenuModel>>> getCategories();
 }

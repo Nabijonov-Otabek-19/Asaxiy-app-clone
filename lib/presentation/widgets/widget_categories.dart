@@ -51,43 +51,39 @@ class _WidgetCategoriesState extends State<WidgetCategories> {
             return GridTile(
               child: GestureDetector(
                 onTap: widget.onTap(data.title),
-                child: Expanded(
-                  flex: 1,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Card(
-                        elevation: 4, // 4
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Container(
-                            padding: const EdgeInsets.all(16),
-                            width: 57,
-                            height: 57,
-                            color: data.color,
-                            child: Image.asset(
-                              data.icon,
-                              color:
-                                  data.tintColor != 0 ? data.tintColor : null,
-                            ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Card(
+                      elevation: 4, // 4
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8),
+                        child: Container(
+                          padding: const EdgeInsets.all(16),
+                          width: 57,
+                          height: 57,
+                          color: data.color,
+                          child: Image.asset(
+                            data.icon,
+                            color: data.tintColor != 0 ? data.tintColor : null,
                           ),
                         ),
                       ),
-                      const SizedBox(height: 4),
-                      Text(
-                        data.title,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: gray,
-                          fontSize: 10,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      )
-                    ],
-                  ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      data.title,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: gray,
+                        fontSize: 10,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
+                  ],
                 ),
               ),
             );

@@ -39,4 +39,19 @@ class RepositoryImpl extends Repository {
       return ApiResponse.error(e.toString());
     }
   }
+
+  @override
+  Future<ApiResponse<List<MenuModel>>> getCategories() async {
+    try {
+      final result = await _firestore.collection("categories").get();
+      final list = result.docs
+          .map((e) => MenuModel(
+              e['id'], e['icon'], e['color'], e['tintColor'], e['title']))
+          .toList();
+
+      return ApiResponse.completed(list);
+    } catch (e) {
+      return ApiResponse.error(e.toString());
+    }
+  }
 }
