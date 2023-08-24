@@ -6,6 +6,8 @@ Color accent = const Color(0xffff8677);
 
 Color background = const Color(0xffF4F7FE);
 
+Color iconGray = const Color(0xff747474);
+
 Color light_gray = const Color(0xff323232);
 Color light_blue = const Color(0xffDDF0FF);
 Color light_red = const Color(0xffFEEEEE);

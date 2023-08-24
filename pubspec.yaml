@@ -27,6 +27,7 @@ dependencies:
   firebase_storage: ^11.2.6
   freezed: ^2.4.2
   freezed_annotation: ^2.4.1
+  smooth_page_indicator: ^1.1.0
   provider:
 
 dev_dependencies:

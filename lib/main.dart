@@ -98,9 +98,9 @@ class _MyHomePageState extends State<MyHomePage> {
         BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,
             activeIcon: Image.asset("assets/images/ic_category.png",
-                height: 24, color: blue),
+                height: 23, color: blue),
             icon: Image.asset("assets/images/ic_menu.png",
-                height: 28, color: gray),
+                height: 23, color: iconGray),
             label: "Menu"),
         BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,

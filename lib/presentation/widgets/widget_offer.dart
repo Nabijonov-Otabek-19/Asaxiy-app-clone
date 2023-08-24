@@ -6,8 +6,10 @@ import '../../data/model/offer_model.dart';
 
 class WidgetOffer extends StatefulWidget {
   final List<OfferModel> offerList;
+  final Function(int index) onIndexChanged;
 
-  const WidgetOffer({super.key, required this.offerList});
+  const WidgetOffer(
+      {super.key, required this.offerList, required this.onIndexChanged});
 
   @override
   State<WidgetOffer> createState() => _WidgetOfferState();
@@ -21,6 +23,7 @@ class _WidgetOfferState extends State<WidgetOffer> {
     return CarouselSlider(
       carouselController: _carouselController,
       options: CarouselOptions(
+          onPageChanged: (index, reason) => widget.onIndexChanged(index),
           height: 160,
           initialPage: 3,
           enlargeCenterPage: true,
@@ -30,9 +33,9 @@ class _WidgetOfferState extends State<WidgetOffer> {
           reverse: false,
           autoPlay: true,
           viewportFraction: 0.8,
-          autoPlayCurve: Curves.easeOutQuad,
+          autoPlayCurve: Curves.easeInOutSine,
           autoPlayInterval: const Duration(seconds: 3),
-          autoPlayAnimationDuration: const Duration(milliseconds: 500),
+          autoPlayAnimationDuration: const Duration(milliseconds: 400),
           scrollDirection: Axis.horizontal),
       items: widget.offerList.map((e) {
         return ClipRRect(

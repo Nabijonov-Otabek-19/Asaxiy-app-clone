@@ -3,20 +3,14 @@ import 'package:asaxiy_clone/data/model/menu_model.dart';
 import '../theme/colors.dart';
 
 var categories = [
-  MenuModel(1, "assets/images/ic_category.png", light_blue, colorPrimary,
-      "Bo'limlar"),
-  MenuModel(
-      2, "assets/images/ic_calendar.png", light_red, red, "Muddatli to'lov"),
-  MenuModel(
-      3, "assets/images/ic_discount.png", light_pink, pink, "Chegirmalar"),
-  MenuModel(
-      4, "assets/images/ic_lighting.png", light_orange, orange, "Yangilar"),
-  MenuModel(4, "assets/images/ic_book.png", white, 0, "Kitoblar"),
-  MenuModel(
-      4, "assets/images/ic_phone.png", white, 0, "Telefonlar va gadjetlar"),
-  MenuModel(
-      4, "assets/images/ic_wash_machine.png", white, 0, "Maishiy texnika"),
-  MenuModel(4, "assets/images/ic_conditioner.png", white, 0, "Iqlim texnikasi")
+  MenuModel(1, "assets/images/ic_category.png", light_blue, colorPrimary, "Bo'limlar"),
+  MenuModel(2, "assets/images/ic_calendar.png", light_red, red, "Muddatli to'lov"),
+  MenuModel(3, "assets/images/ic_discount.png", light_pink, pink, "Chegirmalar"),
+  MenuModel(4, "assets/images/ic_lighting.png", light_orange, orange, "Yangilar"),
+  MenuModel(5, "assets/images/ic_book.png", white, 0, "Kitoblar"),
+  MenuModel(6, "assets/images/ic_phone.png", white, 0, "Telefonlar va gadjetlar"),
+  MenuModel(7, "assets/images/ic_wash_machine.png", white, 0, "Maishiy texnika"),
+  MenuModel(8, "assets/images/ic_conditioner.png", white, 0, "Iqlim texnikasi")
 ];
 
 var categoryBolimlar = [

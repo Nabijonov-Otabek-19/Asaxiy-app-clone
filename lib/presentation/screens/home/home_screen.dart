@@ -1,10 +1,13 @@
 import 'package:asaxiy_clone/domain/repository/repository_impl.dart';
 import 'package:asaxiy_clone/presentation/screens/home/bloc/home_bloc.dart';
+import 'package:asaxiy_clone/presentation/widgets/widget_categories.dart';
 import 'package:asaxiy_clone/presentation/widgets/widget_offer.dart';
 import 'package:asaxiy_clone/theme/colors.dart';
+import 'package:asaxiy_clone/utils/constants.dart';
 import 'package:asaxiy_clone/utils/network_call_handle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,6 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _searchBarController = TextEditingController();
   final FocusNode searchFocusNode = FocusNode();
   final _bloc = HomeBloc(RepositoryImpl());
+  int _dotIndex = 0;
 
   @override
   void initState() {
@@ -57,10 +61,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               actions: [
-                Image.asset(
-                  "assets/images/ic_menu.png",
-                  width: 24,
-                  height: 24,
+                GestureDetector(
+                  onTap: () {},
+                  child: Image.asset(
+                    "assets/images/ic_document.png",
+                    width: 24,
+                    filterQuality: FilterQuality.medium,
+                    color: light_gray,
+                    height: 24,
+                  ),
                 ),
                 const SizedBox(width: 14)
               ],
@@ -74,7 +83,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: double.infinity,
                 color: background,
                 child: Builder(builder: (context) {
-                  if (state.status == Status.LOADING) {
+                  if (state.status == Status.LOADING ||
+                      state.offerList.isEmpty) {
                     return const Center(child: CircularProgressIndicator());
                   } else if (state.status == Status.ERROR) {
                     return Center(
@@ -84,7 +94,33 @@ class _HomeScreenState extends State<HomeScreen> {
                   }
                   return Column(
                     children: [
-                      WidgetOffer(offerList: state.offerList),
+                      WidgetOffer(
+                        offerList: state.offerList,
+                        onIndexChanged: (index) {
+                          _dotIndex = index;
+                          setState(() {});
+                        },
+                      ),
+                      const SizedBox(height: 8),
+                      AnimatedSmoothIndicator(
+                          activeIndex: _dotIndex,
+                          count: 3,
+                          duration: const Duration(milliseconds: 500),
+                          effect: WormEffect(
+                            dotWidth: 6,
+                            dotHeight: 6,
+                            spacing: 6,
+                            dotColor: light_gray,
+                            radius: 20,
+                            paintStyle: PaintingStyle.stroke,
+                            strokeWidth: 0.5,
+                            activeDotColor: Colors.blue,
+                          ),
+                          onDotClicked: (index) {}),
+                      WidgetCategories(
+                        list: categories,
+                        onTap: (category) {},
+                      ),
                     ],
                   );
                 }),
