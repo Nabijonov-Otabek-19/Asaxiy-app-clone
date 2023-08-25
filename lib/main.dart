@@ -41,10 +41,11 @@ class MyApp extends StatelessWidget {
           type: BottomNavigationBarType.fixed,
         ),
       ),
-      home: ChangeNotifierProvider(
+      home: const SplashScreen(),
+      /*home: ChangeNotifierProvider(
         create: (context) => MainProvider(),
         child: const MyHomePage(),
-      ),
+      ),*/
     );
   }
 }
