@@ -1,6 +1,6 @@
 class MenuModel {
-  final id;
-  final icon;
+  final int id;
+  final String icon;
   final color;
   final tintColor;
   final title;
