@@ -86,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
   BottomNavigationBar myNavBar() {
     return BottomNavigationBar(
       elevation: 16,
-      iconSize: 28,
+      iconSize: 24,
       currentIndex: _selectedIndex,
       selectedItemColor: blue,
       unselectedItemColor: gray,
@@ -100,9 +100,9 @@ class _MyHomePageState extends State<MyHomePage> {
         BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,
             activeIcon: Image.asset("assets/images/ic_category.png",
-                height: 23, color: blue),
+                height: 21, color: blue),
             icon: Image.asset("assets/images/ic_menu.png",
-                height: 23, color: iconGray),
+                height: 21, color: iconGray),
             label: "Menu"),
         BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,

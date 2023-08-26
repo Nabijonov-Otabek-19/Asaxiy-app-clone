@@ -18,7 +18,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _searchBarController = TextEditingController();
-  final FocusNode searchFocusNode = FocusNode();
+  final FocusNode _searchFocusNode = FocusNode();
   final _bloc = HomeBloc(RepositoryImpl());
   int _dotIndex = 0;
 
@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding:
                     const MaterialStatePropertyAll(EdgeInsets.only(left: 8)),
                 hintText: "Search",
-                focusNode: searchFocusNode,
+                focusNode: _searchFocusNode,
                 controller: _searchBarController,
                 leading: const Icon(Icons.search),
                 textStyle: MaterialStatePropertyAll(TextStyle(color: gray)),
@@ -76,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             body: GestureDetector(
               onTap: () {
-                searchFocusNode.unfocus();
+                _searchFocusNode.unfocus();
               },
               child: Container(
                 padding: const EdgeInsets.symmetric(vertical: 8),
