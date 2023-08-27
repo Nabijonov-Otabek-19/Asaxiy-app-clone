@@ -93,29 +93,39 @@ class _MyHomePageState extends State<MyHomePage> {
       onTap: _onItemTapped,
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-            backgroundColor: Theme.of(context).primaryColor,
+            backgroundColor: Theme
+                .of(context)
+                .primaryColor,
             activeIcon: const Icon(Icons.home),
             icon: const Icon(Icons.home_outlined),
             label: "Home"),
         BottomNavigationBarItem(
-            backgroundColor: Theme.of(context).primaryColor,
+            backgroundColor: Theme
+                .of(context)
+                .primaryColor,
             activeIcon: Image.asset("assets/images/ic_category.png",
                 height: 21, color: blue),
             icon: Image.asset("assets/images/ic_menu.png",
                 height: 21, color: iconGray),
             label: "Menu"),
         BottomNavigationBarItem(
-            backgroundColor: Theme.of(context).primaryColor,
+            backgroundColor: Theme
+                .of(context)
+                .primaryColor,
             activeIcon: const Icon(Icons.shopping_cart),
             icon: const Icon(Icons.shopping_cart_outlined),
             label: "Cart"),
         BottomNavigationBarItem(
-            backgroundColor: Theme.of(context).primaryColor,
+            backgroundColor: Theme
+                .of(context)
+                .primaryColor,
             activeIcon: const Icon(Icons.shopping_bag),
             icon: const Icon(Icons.shopping_bag_outlined),
             label: "Orders"),
         BottomNavigationBarItem(
-            backgroundColor: Theme.of(context).primaryColor,
+            backgroundColor: Theme
+                .of(context)
+                .primaryColor,
             activeIcon: const Icon(Icons.person),
             icon: const Icon(Icons.person_outlined),
             label: "Profile")

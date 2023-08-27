@@ -13,7 +13,7 @@ class _OrderScreenState extends State<OrderScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Order Screen"),
+        title: const Text("Orders"),
       ),
       body: Container(
         color: background,
