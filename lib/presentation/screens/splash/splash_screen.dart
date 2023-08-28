@@ -1,5 +1,8 @@
 import 'package:asaxiy_clone/main.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../../main_provider.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -16,8 +19,14 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(
       const Duration(seconds: 2),
       () {
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => const MyHomePage()));
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ChangeNotifierProvider(
+                create: (context) => MainProvider(),
+                child: const MyHomePage(),
+              ),
+            ));
       },
     );
   }

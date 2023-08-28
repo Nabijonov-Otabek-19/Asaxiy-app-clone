@@ -22,7 +22,7 @@ Widget widgetMenuList(List<MenuModel> list, Function(String category) onTap) {
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: 170,
           mainAxisExtent: 140,
-          childAspectRatio: 3 / 2,
+          childAspectRatio: 1 / 2,
           crossAxisSpacing: 0,
           mainAxisSpacing: 0,
         ),
@@ -30,7 +30,7 @@ Widget widgetMenuList(List<MenuModel> list, Function(String category) onTap) {
           final data = list[index];
           return GridTile(
             child: GestureDetector(
-              onTap: onTap(data.title),
+              onTap: () => onTap(data.title),
               child: Card(
                 elevation: 2,
                 surfaceTintColor: Colors.white,

@@ -117,9 +117,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             activeDotColor: Colors.blue,
                           ),
                           onDotClicked: (index) {}),
-                      WidgetCategories(
-                        list: categories,
-                        onTap: (category) {},
+                      widgetCategories(
+                        categories,
+                        (category) {
+                          print(category);
+                        },
                       ),
                     ],
                   );

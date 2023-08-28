@@ -62,7 +62,7 @@ class _MenuScreenState extends State<MenuScreen> {
       body: Container(
         color: background,
         child: widgetMenuList(categoryBolimlar, (category) {
-          //print(category);
+          print(category);
         }),
       ),
     );
