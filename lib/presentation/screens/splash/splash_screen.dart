@@ -1,8 +1,8 @@
-import 'package:asaxiy_clone/main.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../main_provider.dart';
+import '../../../my_home_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
