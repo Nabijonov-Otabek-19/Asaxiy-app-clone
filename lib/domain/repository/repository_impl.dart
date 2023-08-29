@@ -3,6 +3,7 @@ import 'package:asaxiy_clone/domain/repository/repository.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../utils/network_call_handle.dart';
+import '../../utils/output_utils.dart';
 
 class RepositoryImpl extends Repository {
   final _firestore = FirebaseFirestore.instance;
@@ -24,8 +25,41 @@ class RepositoryImpl extends Repository {
   Future<ApiResponse<List<ProductModel>>> getProductsByCategory(
       String category) async {
     try {
-      return ApiResponse.completed([]);
+      QuerySnapshot categorySnapshot = await _firestore
+          .collection('categories')
+          .where('name', isEqualTo: category)
+          .get();
+
+      List<ProductModel> products = [];
+
+      if (categorySnapshot.docs.isNotEmpty) {
+        DocumentSnapshot categoryDoc = categorySnapshot.docs.first;
+
+        QuerySnapshot productSnapshot =
+            await categoryDoc.reference.collection('books').get();
+
+        for (var productDoc in productSnapshot.docs) {
+          logger("ProductSnapshot");
+          ProductModel product = ProductModel(
+            await productDoc['id'],
+            await productDoc['title'],
+            await productDoc['description'],
+            await productDoc['price'],
+            await productDoc['stars'],
+            await productDoc['state'],
+            List<String>.from(productDoc['images']),
+            await productDoc['categoryName'],
+          );
+          products.add(product);
+          logger(products.toString());
+        }
+      } else {
+        logger("Empty");
+        return ApiResponse.error("There is no products");
+      }
+      return ApiResponse.completed(products);
     } catch (e) {
+      logger("Error = $e");
       return ApiResponse.error(e.toString());
     }
   }

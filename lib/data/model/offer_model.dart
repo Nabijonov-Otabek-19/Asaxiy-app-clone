@@ -1,6 +1,6 @@
 class OfferModel {
-  final id;
-  final imgUrl;
+  final int id;
+  final String imgUrl;
 
   OfferModel(this.id, this.imgUrl);
 }

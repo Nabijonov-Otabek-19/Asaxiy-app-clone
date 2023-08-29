@@ -24,7 +24,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       emit(state.copyWith(activeIndex: event.index));
       }
     });
-
   }
 
   Future<void> _loadOffers(HomeEvent event, Emitter<HomeState> emit) async {
