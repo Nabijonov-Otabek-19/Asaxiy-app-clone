@@ -13,12 +13,15 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: IndexedStack(
-        index: context.watch<MainProvider>().selectedIndex,
-        children: context.watch<MainProvider>().pages,
+    return WillPopScope(
+      onWillPop: context.read<MainProvider>().checkScreen,
+      child: Scaffold(
+        body: IndexedStack(
+          index: context.watch<MainProvider>().selectedIndex,
+          children: context.watch<MainProvider>().pages,
+        ),
+        bottomNavigationBar: myNavBar(),
       ),
-      bottomNavigationBar: myNavBar(),
     );
   }
 

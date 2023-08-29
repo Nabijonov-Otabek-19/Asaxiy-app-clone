@@ -29,7 +29,6 @@ class MyApp extends StatelessWidget {
         hoverColor: Colors.transparent,
         useMaterial3: true,
         appBarTheme: AppBarTheme(
-          //color: primary,
           backgroundColor: background,
           titleTextStyle: const TextStyle(color: Colors.black, fontSize: 22),
         ),
