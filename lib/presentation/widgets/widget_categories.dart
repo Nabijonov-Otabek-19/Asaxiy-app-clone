@@ -14,60 +14,68 @@ Widget widgetCategories(List<MenuModel> list, Function(String category) onTap) {
       width: double.infinity,
       alignment: Alignment.center,
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-      child: GridView.builder(
-        controller: controller,
-        shrinkWrap: true,
-        dragStartBehavior: DragStartBehavior.down,
-        clipBehavior: Clip.hardEdge,
-        itemCount: 8,
-        scrollDirection: Axis.vertical,
-        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 100,
-          mainAxisExtent: 100,
-          childAspectRatio: 3 / 2,
-          crossAxisSpacing: 0,
-          mainAxisSpacing: 0,
-        ),
-        itemBuilder: (context, index) {
-          final data = list[index];
-          return GridTile(
-            child: GestureDetector(
-              onTap: () => onTap(data.title),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Card(
-                    elevation: 4, // 4
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
-                      child: Container(
-                        padding: const EdgeInsets.all(16),
-                        width: 57,
-                        height: 57,
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          double itemWidth = constraints.maxWidth / 2;
+          double itemHeight = 60;
+
+          return GridView.builder(
+            controller: controller,
+            shrinkWrap: true,
+            dragStartBehavior: DragStartBehavior.down,
+            clipBehavior: Clip.hardEdge,
+            itemCount: list.length,
+            // 8
+            scrollDirection: Axis.vertical,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 4,
+              mainAxisExtent: 100,
+              crossAxisSpacing: 25,
+              childAspectRatio: (itemWidth / itemHeight),
+            ),
+            itemBuilder: (context, index) {
+              final data = list[index];
+              return GridTile(
+                child: GestureDetector(
+                  onTap: () => onTap(data.title),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Card(
                         color: data.color,
-                        child: Image.asset(
-                          data.icon,
-                          color: data.tintColor != 0 ? data.tintColor : null,
+                        surfaceTintColor: Colors.white,
+                        margin: const EdgeInsets.all(4),
+                        elevation: 2,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8)),
+                        child: Container(
+                          padding: const EdgeInsets.all(14),
+                          width: itemWidth,
+                          height: itemHeight,
+                          child: Image.asset(
+                            data.icon,
+                            color: data.tintColor != 0 ? data.tintColor : null,
+                          ),
                         ),
                       ),
-                    ),
+                      const SizedBox(height: 4),
+                      Text(
+                        data.title,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: gray,
+                          fontSize: 10,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      )
+                    ],
                   ),
-                  const SizedBox(height: 4),
-                  Text(
-                    data.title,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: gray,
-                      fontSize: 10,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            ),
+                ),
+              );
+            },
           );
         },
       ),

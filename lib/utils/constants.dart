@@ -2,6 +2,26 @@ import 'package:asaxiy_clone/data/model/menu_model.dart';
 
 import '../theme/colors.dart';
 
+
+var categoriesList = <String>[
+  "Kitoblar",
+  "Telefon va gadjetlar",
+  "Maishiy texnika",
+  "Iqlim texnikasi",
+  "Kompyuter texnikasi",
+  "Sport va dam olish",
+  "Uy va ofis uchun tovarlar",
+  "Televizor, video va audio",
+  "Geymerlar uchun tovarlar",
+  "Mebel",
+  "Idish-tovoqlar",
+  "Go'zallik va salomatlik",
+  "Bolalar uchun tovarlar",
+  "Kiyim, poyabzal va aksessuarlar",
+  "O'yinchoqlar, sovg'alar va aksessuarlar",
+  "Avto mollari"
+];
+
 var categories = [
   MenuModel(1, "assets/images/ic_category.png", light_blue, colorPrimary, "Bo'limlar"),
   MenuModel(2, "assets/images/ic_calendar.png", light_red, red, "Muddatli to'lov"),

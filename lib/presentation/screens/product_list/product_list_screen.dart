@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import '../../../theme/colors.dart';
 
 class ProductListScreen extends StatefulWidget {
-  const ProductListScreen({super.key});
+  final String category;
+
+  const ProductListScreen({super.key, required this.category});
 
   @override
   State<ProductListScreen> createState() => _ProductListScreenState();
@@ -38,6 +40,12 @@ class _ProductListScreenState extends State<ProductListScreen> {
           shape: MaterialStatePropertyAll(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           ),
+        ),
+      ),
+      body: Center(
+        child: Text(
+          widget.category,
+          style: const TextStyle(fontSize: 40, color: Colors.black),
         ),
       ),
     );

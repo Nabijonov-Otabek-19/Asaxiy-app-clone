@@ -7,5 +7,6 @@ class HomeState with _$HomeState {
     @Default("") String error,
     @Default([]) List<OfferModel> offerList,
     @Default([]) List<ProductModel> productList,
+    @Default(0) int activeIndex,
   }) = _State;
 }

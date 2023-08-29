@@ -20,8 +20,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         await _loadOffers(event, emit);
       } else if (event is _LoadProducts) {
         await _loadProducts(event, emit);
+      }else if(event is _ChangeIndex){
+      emit(state.copyWith(activeIndex: event.index));
       }
     });
+
   }
 
   Future<void> _loadOffers(HomeEvent event, Emitter<HomeState> emit) async {

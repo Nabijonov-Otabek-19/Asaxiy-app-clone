@@ -20,18 +20,21 @@ mixin _$HomeEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() loadOffers,
     required TResult Function() loadProducts,
+    required TResult Function(int index) changeDotIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadOffers,
     TResult? Function()? loadProducts,
+    TResult? Function(int index)? changeDotIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadOffers,
     TResult Function()? loadProducts,
+    TResult Function(int index)? changeDotIndex,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$HomeEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadOffers value) loadOffers,
     required TResult Function(_LoadProducts value) loadProducts,
+    required TResult Function(_ChangeIndex value) changeDotIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadOffers value)? loadOffers,
     TResult? Function(_LoadProducts value)? loadProducts,
+    TResult? Function(_ChangeIndex value)? changeDotIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadOffers value)? loadOffers,
     TResult Function(_LoadProducts value)? loadProducts,
+    TResult Function(_ChangeIndex value)? changeDotIndex,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,6 +119,7 @@ class _$_LoadOffers implements _LoadOffers {
   TResult when<TResult extends Object?>({
     required TResult Function() loadOffers,
     required TResult Function() loadProducts,
+    required TResult Function(int index) changeDotIndex,
   }) {
     return loadOffers();
   }
@@ -122,6 +129,7 @@ class _$_LoadOffers implements _LoadOffers {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadOffers,
     TResult? Function()? loadProducts,
+    TResult? Function(int index)? changeDotIndex,
   }) {
     return loadOffers?.call();
   }
@@ -131,6 +139,7 @@ class _$_LoadOffers implements _LoadOffers {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadOffers,
     TResult Function()? loadProducts,
+    TResult Function(int index)? changeDotIndex,
     required TResult orElse(),
   }) {
     if (loadOffers != null) {
@@ -144,6 +153,7 @@ class _$_LoadOffers implements _LoadOffers {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadOffers value) loadOffers,
     required TResult Function(_LoadProducts value) loadProducts,
+    required TResult Function(_ChangeIndex value) changeDotIndex,
   }) {
     return loadOffers(this);
   }
@@ -153,6 +163,7 @@ class _$_LoadOffers implements _LoadOffers {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadOffers value)? loadOffers,
     TResult? Function(_LoadProducts value)? loadProducts,
+    TResult? Function(_ChangeIndex value)? changeDotIndex,
   }) {
     return loadOffers?.call(this);
   }
@@ -162,6 +173,7 @@ class _$_LoadOffers implements _LoadOffers {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadOffers value)? loadOffers,
     TResult Function(_LoadProducts value)? loadProducts,
+    TResult Function(_ChangeIndex value)? changeDotIndex,
     required TResult orElse(),
   }) {
     if (loadOffers != null) {
@@ -215,6 +227,7 @@ class _$_LoadProducts implements _LoadProducts {
   TResult when<TResult extends Object?>({
     required TResult Function() loadOffers,
     required TResult Function() loadProducts,
+    required TResult Function(int index) changeDotIndex,
   }) {
     return loadProducts();
   }
@@ -224,6 +237,7 @@ class _$_LoadProducts implements _LoadProducts {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadOffers,
     TResult? Function()? loadProducts,
+    TResult? Function(int index)? changeDotIndex,
   }) {
     return loadProducts?.call();
   }
@@ -233,6 +247,7 @@ class _$_LoadProducts implements _LoadProducts {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadOffers,
     TResult Function()? loadProducts,
+    TResult Function(int index)? changeDotIndex,
     required TResult orElse(),
   }) {
     if (loadProducts != null) {
@@ -246,6 +261,7 @@ class _$_LoadProducts implements _LoadProducts {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadOffers value) loadOffers,
     required TResult Function(_LoadProducts value) loadProducts,
+    required TResult Function(_ChangeIndex value) changeDotIndex,
   }) {
     return loadProducts(this);
   }
@@ -255,6 +271,7 @@ class _$_LoadProducts implements _LoadProducts {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadOffers value)? loadOffers,
     TResult? Function(_LoadProducts value)? loadProducts,
+    TResult? Function(_ChangeIndex value)? changeDotIndex,
   }) {
     return loadProducts?.call(this);
   }
@@ -264,6 +281,7 @@ class _$_LoadProducts implements _LoadProducts {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadOffers value)? loadOffers,
     TResult Function(_LoadProducts value)? loadProducts,
+    TResult Function(_ChangeIndex value)? changeDotIndex,
     required TResult orElse(),
   }) {
     if (loadProducts != null) {
@@ -278,29 +296,173 @@ abstract class _LoadProducts implements HomeEvent {
 }
 
 /// @nodoc
+abstract class _$$_ChangeIndexCopyWith<$Res> {
+  factory _$$_ChangeIndexCopyWith(
+          _$_ChangeIndex value, $Res Function(_$_ChangeIndex) then) =
+      __$$_ChangeIndexCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$_ChangeIndexCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$_ChangeIndex>
+    implements _$$_ChangeIndexCopyWith<$Res> {
+  __$$_ChangeIndexCopyWithImpl(
+      _$_ChangeIndex _value, $Res Function(_$_ChangeIndex) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$_ChangeIndex(
+      null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeIndex implements _ChangeIndex {
+  const _$_ChangeIndex(this.index);
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'HomeEvent.changeDotIndex(index: $index)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeIndex &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ChangeIndexCopyWith<_$_ChangeIndex> get copyWith =>
+      __$$_ChangeIndexCopyWithImpl<_$_ChangeIndex>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadOffers,
+    required TResult Function() loadProducts,
+    required TResult Function(int index) changeDotIndex,
+  }) {
+    return changeDotIndex(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadOffers,
+    TResult? Function()? loadProducts,
+    TResult? Function(int index)? changeDotIndex,
+  }) {
+    return changeDotIndex?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadOffers,
+    TResult Function()? loadProducts,
+    TResult Function(int index)? changeDotIndex,
+    required TResult orElse(),
+  }) {
+    if (changeDotIndex != null) {
+      return changeDotIndex(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadOffers value) loadOffers,
+    required TResult Function(_LoadProducts value) loadProducts,
+    required TResult Function(_ChangeIndex value) changeDotIndex,
+  }) {
+    return changeDotIndex(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadOffers value)? loadOffers,
+    TResult? Function(_LoadProducts value)? loadProducts,
+    TResult? Function(_ChangeIndex value)? changeDotIndex,
+  }) {
+    return changeDotIndex?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadOffers value)? loadOffers,
+    TResult Function(_LoadProducts value)? loadProducts,
+    TResult Function(_ChangeIndex value)? changeDotIndex,
+    required TResult orElse(),
+  }) {
+    if (changeDotIndex != null) {
+      return changeDotIndex(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeIndex implements HomeEvent {
+  const factory _ChangeIndex(final int index) = _$_ChangeIndex;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$_ChangeIndexCopyWith<_$_ChangeIndex> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$HomeState {
   Status get status => throw _privateConstructorUsedError;
   String get error => throw _privateConstructorUsedError;
   List<OfferModel> get offerList => throw _privateConstructorUsedError;
   List<ProductModel> get productList => throw _privateConstructorUsedError;
+  int get activeIndex => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Status status, String error,
-            List<OfferModel> offerList, List<ProductModel> productList)
+    required TResult Function(
+            Status status,
+            String error,
+            List<OfferModel> offerList,
+            List<ProductModel> productList,
+            int activeIndex)
         state,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Status status, String error, List<OfferModel> offerList,
-            List<ProductModel> productList)?
+            List<ProductModel> productList, int activeIndex)?
         state,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Status status, String error, List<OfferModel> offerList,
-            List<ProductModel> productList)?
+            List<ProductModel> productList, int activeIndex)?
         state,
     required TResult orElse(),
   }) =>
@@ -336,7 +498,8 @@ abstract class $HomeStateCopyWith<$Res> {
       {Status status,
       String error,
       List<OfferModel> offerList,
-      List<ProductModel> productList});
+      List<ProductModel> productList,
+      int activeIndex});
 }
 
 /// @nodoc
@@ -356,6 +519,7 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? error = null,
     Object? offerList = null,
     Object? productList = null,
+    Object? activeIndex = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -374,6 +538,10 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.productList
           : productList // ignore: cast_nullable_to_non_nullable
               as List<ProductModel>,
+      activeIndex: null == activeIndex
+          ? _value.activeIndex
+          : activeIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -388,7 +556,8 @@ abstract class _$$_StateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       {Status status,
       String error,
       List<OfferModel> offerList,
-      List<ProductModel> productList});
+      List<ProductModel> productList,
+      int activeIndex});
 }
 
 /// @nodoc
@@ -405,6 +574,7 @@ class __$$_StateCopyWithImpl<$Res>
     Object? error = null,
     Object? offerList = null,
     Object? productList = null,
+    Object? activeIndex = null,
   }) {
     return _then(_$_State(
       status: null == status
@@ -423,6 +593,10 @@ class __$$_StateCopyWithImpl<$Res>
           ? _value._productList
           : productList // ignore: cast_nullable_to_non_nullable
               as List<ProductModel>,
+      activeIndex: null == activeIndex
+          ? _value.activeIndex
+          : activeIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -434,7 +608,8 @@ class _$_State implements _State {
       {this.status = Status.LOADING,
       this.error = "",
       final List<OfferModel> offerList = const [],
-      final List<ProductModel> productList = const []})
+      final List<ProductModel> productList = const [],
+      this.activeIndex = 0})
       : _offerList = offerList,
         _productList = productList;
 
@@ -463,8 +638,12 @@ class _$_State implements _State {
   }
 
   @override
+  @JsonKey()
+  final int activeIndex;
+
+  @override
   String toString() {
-    return 'HomeState.state(status: $status, error: $error, offerList: $offerList, productList: $productList)';
+    return 'HomeState.state(status: $status, error: $error, offerList: $offerList, productList: $productList, activeIndex: $activeIndex)';
   }
 
   @override
@@ -477,7 +656,9 @@ class _$_State implements _State {
             const DeepCollectionEquality()
                 .equals(other._offerList, _offerList) &&
             const DeepCollectionEquality()
-                .equals(other._productList, _productList));
+                .equals(other._productList, _productList) &&
+            (identical(other.activeIndex, activeIndex) ||
+                other.activeIndex == activeIndex));
   }
 
   @override
@@ -486,7 +667,8 @@ class _$_State implements _State {
       status,
       error,
       const DeepCollectionEquality().hash(_offerList),
-      const DeepCollectionEquality().hash(_productList));
+      const DeepCollectionEquality().hash(_productList),
+      activeIndex);
 
   @JsonKey(ignore: true)
   @override
@@ -497,33 +679,37 @@ class _$_State implements _State {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Status status, String error,
-            List<OfferModel> offerList, List<ProductModel> productList)
+    required TResult Function(
+            Status status,
+            String error,
+            List<OfferModel> offerList,
+            List<ProductModel> productList,
+            int activeIndex)
         state,
   }) {
-    return state(status, error, offerList, productList);
+    return state(status, error, offerList, productList, activeIndex);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Status status, String error, List<OfferModel> offerList,
-            List<ProductModel> productList)?
+            List<ProductModel> productList, int activeIndex)?
         state,
   }) {
-    return state?.call(status, error, offerList, productList);
+    return state?.call(status, error, offerList, productList, activeIndex);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Status status, String error, List<OfferModel> offerList,
-            List<ProductModel> productList)?
+            List<ProductModel> productList, int activeIndex)?
         state,
     required TResult orElse(),
   }) {
     if (state != null) {
-      return state(status, error, offerList, productList);
+      return state(status, error, offerList, productList, activeIndex);
     }
     return orElse();
   }
@@ -562,7 +748,8 @@ abstract class _State implements HomeState {
       {final Status status,
       final String error,
       final List<OfferModel> offerList,
-      final List<ProductModel> productList}) = _$_State;
+      final List<ProductModel> productList,
+      final int activeIndex}) = _$_State;
 
   @override
   Status get status;
@@ -572,6 +759,8 @@ abstract class _State implements HomeState {
   List<OfferModel> get offerList;
   @override
   List<ProductModel> get productList;
+  @override
+  int get activeIndex;
   @override
   @JsonKey(ignore: true)
   _$$_StateCopyWith<_$_State> get copyWith =>
