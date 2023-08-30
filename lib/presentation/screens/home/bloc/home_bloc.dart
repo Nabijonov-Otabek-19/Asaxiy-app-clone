@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../data/model/models.dart';
-import '../../../../domain/repository/repository_impl.dart';
+import '../../../../domain/repository/repository.dart';
 import '../../../../utils/network_call_handle.dart';
 
 part 'home_event.dart';
@@ -12,7 +12,7 @@ part 'home_state.dart';
 part 'home_bloc.freezed.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  final RepositoryImpl repository;
+  final Repository repository;
 
   HomeBloc(this.repository) : super(const HomeState.state()) {
     on<HomeEvent>((event, emit) async {

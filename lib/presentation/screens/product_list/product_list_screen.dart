@@ -1,9 +1,10 @@
-import 'package:asaxiy_clone/domain/repository/repository_impl.dart';
+import 'package:asaxiy_clone/domain/repository/repository.dart';
 import 'package:asaxiy_clone/presentation/screens/product_list/bloc/product_list_bloc.dart';
 import 'package:asaxiy_clone/presentation/widgets/widget_productlist_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../di/di.dart';
 import '../../../theme/colors.dart';
 import '../../../utils/network_call_handle.dart';
 import '../../../utils/output_utils.dart';
@@ -18,7 +19,7 @@ class ProductListScreen extends StatefulWidget {
 }
 
 class _ProductListScreenState extends State<ProductListScreen> {
-  final _bloc = ProductListBloc(RepositoryImpl());
+  final _bloc = ProductListBloc(di.get<Repository>());
 
   final TextEditingController _searchBarController = TextEditingController();
   final FocusNode _searchFocusNode = FocusNode();
@@ -76,12 +77,54 @@ class _ProductListScreenState extends State<ProductListScreen> {
                     ),
                   );
                 }
-                return widgetProductListGrid(
-                  state.productList,
-                  () {
-                    toast("Item clicked");
-                    // Navigate to Detail Screen
-                  },
+                return Container(
+                  color: background,
+                  width: MediaQuery.of(context).size.width,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 12, horizontal: 16),
+                        child: Text(
+                          widget.category,
+                          textAlign: TextAlign.start,
+                          style: const TextStyle(
+                              fontSize: 24, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              "assets/images/ic_menu.png",
+                              width: 18,
+                              height: 18,
+                            ),
+                            const Row(
+                              children: [
+                                Text("Saralash",
+                                    style: TextStyle(fontSize: 14)),
+                                Icon(Icons.keyboard_arrow_down, size: 24),
+                              ],
+                            ),
+                            const Icon(Icons.filter_list, size: 24),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      widgetProductListGrid(
+                        state.productList,
+                        () {
+                          toast("Item clicked");
+                          // Navigate to Detail Screen
+                        },
+                      ),
+                    ],
+                  ),
                 );
               },
             ),

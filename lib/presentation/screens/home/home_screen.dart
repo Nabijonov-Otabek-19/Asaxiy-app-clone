@@ -1,4 +1,5 @@
-import 'package:asaxiy_clone/domain/repository/repository_impl.dart';
+import 'package:asaxiy_clone/domain/repository/repository.dart';
+import 'package:asaxiy_clone/main_provider.dart';
 import 'package:asaxiy_clone/presentation/screens/home/bloc/home_bloc.dart';
 import 'package:asaxiy_clone/presentation/screens/product_list/product_list_screen.dart';
 import 'package:asaxiy_clone/presentation/widgets/widget_appbar.dart';
@@ -10,6 +11,8 @@ import 'package:asaxiy_clone/utils/network_call_handle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../di/di.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -18,7 +21,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final _bloc = HomeBloc(RepositoryImpl());
+  final _bloc = HomeBloc(di.get<Repository>());
 
   @override
   void initState() {
@@ -63,11 +66,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     widgetCategories(
                       categories,
                       (category) {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    ProductListScreen(category: category)));
+                        if (category == "Bo'limlar") {
+                          context.read<MainProvider>().onItemTapped(1);
+                        } else {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      ProductListScreen(category: category)));
+                        }
                       },
                     ),
                   ],

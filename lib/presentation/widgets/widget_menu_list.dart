@@ -34,7 +34,7 @@ Widget widgetMenuList(List<MenuModel> list, Function(String category) onTap) {
               final data = list[index];
               return GridTile(
                 child: GestureDetector(
-                  onTap: () => onTap(data.title),
+                 onTap: () => onTap(data.title),
                   child: Card(
                     elevation: 1,
                     surfaceTintColor: Colors.white,

@@ -1,5 +1,6 @@
 import 'package:asaxiy_clone/main_provider.dart';
 import 'package:asaxiy_clone/theme/themes.dart';
+import 'package:asaxiy_clone/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,7 +19,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Scaffold(
         body: IndexedStack(
           index: context.watch<MainProvider>().selectedIndex,
-          children: context.watch<MainProvider>().pages,
+          children: pages,
         ),
         bottomNavigationBar: myNavBar(),
       ),

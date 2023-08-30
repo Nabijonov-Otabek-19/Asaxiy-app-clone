@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../di/di.dart';
 import '../../../main_provider.dart';
 import '../../../my_home_page.dart';
 
@@ -23,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
             context,
             MaterialPageRoute(
               builder: (context) => ChangeNotifierProvider(
-                create: (context) => MainProvider(),
+                create: (context) => di.get<MainProvider>(),
                 child: const MyHomePage(),
               ),
             ));

@@ -1,5 +1,6 @@
 import 'package:asaxiy_clone/data/model/models.dart';
 import 'package:asaxiy_clone/domain/repository/repository.dart';
+import 'package:asaxiy_clone/utils/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../utils/network_call_handle.dart';
@@ -11,7 +12,7 @@ class RepositoryImpl extends Repository {
   @override
   Future<ApiResponse<List<OfferModel>>> getOffers() async {
     try {
-      final result = await _firestore.collection("offers").get();
+      final result = await _firestore.collection(OFFERS).get();
       final list =
           result.docs.map((e) => OfferModel(e['id'], e['imgUrl'])).toList();
 
@@ -26,7 +27,7 @@ class RepositoryImpl extends Repository {
       String category) async {
     try {
       QuerySnapshot categorySnapshot = await _firestore
-          .collection('categories')
+          .collection(CATEGORIES)
           .where('name', isEqualTo: category)
           .get();
 
@@ -36,7 +37,7 @@ class RepositoryImpl extends Repository {
         DocumentSnapshot categoryDoc = categorySnapshot.docs.first;
 
         QuerySnapshot productSnapshot =
-            await categoryDoc.reference.collection('books').get();
+            await categoryDoc.reference.collection(PRODUCTLIST).get();
 
         for (var productDoc in productSnapshot.docs) {
           logger("ProductSnapshot");
@@ -77,7 +78,7 @@ class RepositoryImpl extends Repository {
   @override
   Future<ApiResponse<List<MenuModel>>> getCategories() async {
     try {
-      final result = await _firestore.collection("categories").get();
+      final result = await _firestore.collection(CATEGORIES).get();
       final list = result.docs
           .map((e) => MenuModel(
               e['id'], e['icon'], e['color'], e['tintColor'], e['title']))

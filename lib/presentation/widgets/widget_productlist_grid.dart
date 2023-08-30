@@ -9,7 +9,7 @@ Widget widgetProductListGrid(List<ProductModel> list, Function() onTap) {
   return LayoutBuilder(
     builder: (context, constraints) {
       double itemWidth = constraints.maxWidth / 2;
-      double itemHeight = 130; // your requirement height
+      double itemHeight = 170; // your requirement height
 
       return GridView.builder(
         controller: controller,
@@ -22,7 +22,7 @@ Widget widgetProductListGrid(List<ProductModel> list, Function() onTap) {
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           childAspectRatio: (itemWidth / itemHeight),
-          mainAxisExtent: 220,
+          mainAxisExtent: 330,
         ),
         itemBuilder: (context, index) {
           return GridTile(
