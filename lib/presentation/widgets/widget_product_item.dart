@@ -87,7 +87,7 @@ Widget widgetProductItem(
                 style: const ButtonStyle(
                   elevation: MaterialStatePropertyAll(4),
                   shadowColor: MaterialStatePropertyAll(Colors.black),
-                  backgroundColor: MaterialStatePropertyAll(Colors.green),
+                  backgroundColor: MaterialStatePropertyAll(Colors.blue),
                   shape: MaterialStatePropertyAll(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.only(
