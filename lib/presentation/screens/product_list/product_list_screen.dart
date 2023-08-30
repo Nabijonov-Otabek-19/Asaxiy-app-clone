@@ -1,4 +1,5 @@
 import 'package:asaxiy_clone/domain/repository/repository.dart';
+import 'package:asaxiy_clone/presentation/screens/details/detail_screen.dart';
 import 'package:asaxiy_clone/presentation/screens/product_list/bloc/product_list_bloc.dart';
 import 'package:asaxiy_clone/presentation/widgets/widget_productlist_grid.dart';
 import 'package:flutter/material.dart';
@@ -120,9 +121,13 @@ class _ProductListScreenState extends State<ProductListScreen> {
                       const SizedBox(height: 8),
                       widgetProductListGrid(
                         state.productList,
-                        () {
-                          toast("Item clicked");
-                          // Navigate to Detail Screen
+                        (model) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    DetailsScreen(model: model),
+                              ));
                         },
                       ),
                     ],

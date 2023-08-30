@@ -9,6 +9,10 @@ part 'details_bloc.freezed.dart';
 
 class DetailsBloc extends Bloc<DetailsEvent, DetailsState> {
   DetailsBloc() : super(const DetailsState.initial()) {
-    on<DetailsEvent>((event, emit) {});
+    on<DetailsEvent>((event, emit) async {
+      if (event is _ChangeDotIndex) {
+        emit(state.copyWith(activeIndex: event.index));
+      }
+    });
   }
 }

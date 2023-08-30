@@ -3,7 +3,8 @@ import 'package:asaxiy_clone/presentation/widgets/widget_product_item.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-Widget widgetProductListGrid(List<ProductModel> list, Function() onTap) {
+Widget widgetProductListGrid(
+    List<ProductModel> list, Function(ProductModel model) onTap) {
   final controller = ScrollController();
 
   return LayoutBuilder(
@@ -27,7 +28,7 @@ Widget widgetProductListGrid(List<ProductModel> list, Function() onTap) {
         itemBuilder: (context, index) {
           return GridTile(
             child: GestureDetector(
-              onTap: onTap,
+              onTap: () => onTap(list[index]),
               child: widgetProductItem(list[index], itemWidth, itemHeight),
             ),
           );

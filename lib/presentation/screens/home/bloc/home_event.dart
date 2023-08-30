@@ -6,5 +6,5 @@ class HomeEvent with _$HomeEvent {
 
   const factory HomeEvent.loadProducts() = _LoadProducts;
 
-  const factory HomeEvent.changeDotIndex(int index) = _ChangeIndex;
+  const factory HomeEvent.changeDotIndex(int index) = _ChangeDotIndex;
 }

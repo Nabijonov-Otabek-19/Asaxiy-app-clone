@@ -20,8 +20,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         await _loadOffers(event, emit);
       } else if (event is _LoadProducts) {
         await _loadProducts(event, emit);
-      }else if(event is _ChangeIndex){
-      emit(state.copyWith(activeIndex: event.index));
+      } else if (event is _ChangeDotIndex) {
+        emit(state.copyWith(activeIndex: event.index));
       }
     });
   }

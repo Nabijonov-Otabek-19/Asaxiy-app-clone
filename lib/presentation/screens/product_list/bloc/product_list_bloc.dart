@@ -24,13 +24,12 @@ class ProductListBloc extends Bloc<ProductListEvent, ProductListState> {
 
   Future<void> _getProducts(
       ProductListEvent event, Emitter<ProductListState> emit) async {
-
     emit(state.copyWith(status: Status.LOADING));
     final data = await repository.getProductsByCategory(event.category);
 
     if (data.status == Status.COMPLETED) {
       emit(state.copyWith(productList: data.data!, status: data.status));
-    } else if(data.status == Status.ERROR) {
+    } else if (data.status == Status.ERROR) {
       emit(state.copyWith(error: data.message ?? "", status: data.status));
     }
   }

@@ -42,21 +42,21 @@ mixin _$HomeEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadOffers value) loadOffers,
     required TResult Function(_LoadProducts value) loadProducts,
-    required TResult Function(_ChangeIndex value) changeDotIndex,
+    required TResult Function(_ChangeDotIndex value) changeDotIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadOffers value)? loadOffers,
     TResult? Function(_LoadProducts value)? loadProducts,
-    TResult? Function(_ChangeIndex value)? changeDotIndex,
+    TResult? Function(_ChangeDotIndex value)? changeDotIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadOffers value)? loadOffers,
     TResult Function(_LoadProducts value)? loadProducts,
-    TResult Function(_ChangeIndex value)? changeDotIndex,
+    TResult Function(_ChangeDotIndex value)? changeDotIndex,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -153,7 +153,7 @@ class _$_LoadOffers implements _LoadOffers {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadOffers value) loadOffers,
     required TResult Function(_LoadProducts value) loadProducts,
-    required TResult Function(_ChangeIndex value) changeDotIndex,
+    required TResult Function(_ChangeDotIndex value) changeDotIndex,
   }) {
     return loadOffers(this);
   }
@@ -163,7 +163,7 @@ class _$_LoadOffers implements _LoadOffers {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadOffers value)? loadOffers,
     TResult? Function(_LoadProducts value)? loadProducts,
-    TResult? Function(_ChangeIndex value)? changeDotIndex,
+    TResult? Function(_ChangeDotIndex value)? changeDotIndex,
   }) {
     return loadOffers?.call(this);
   }
@@ -173,7 +173,7 @@ class _$_LoadOffers implements _LoadOffers {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadOffers value)? loadOffers,
     TResult Function(_LoadProducts value)? loadProducts,
-    TResult Function(_ChangeIndex value)? changeDotIndex,
+    TResult Function(_ChangeDotIndex value)? changeDotIndex,
     required TResult orElse(),
   }) {
     if (loadOffers != null) {
@@ -261,7 +261,7 @@ class _$_LoadProducts implements _LoadProducts {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadOffers value) loadOffers,
     required TResult Function(_LoadProducts value) loadProducts,
-    required TResult Function(_ChangeIndex value) changeDotIndex,
+    required TResult Function(_ChangeDotIndex value) changeDotIndex,
   }) {
     return loadProducts(this);
   }
@@ -271,7 +271,7 @@ class _$_LoadProducts implements _LoadProducts {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadOffers value)? loadOffers,
     TResult? Function(_LoadProducts value)? loadProducts,
-    TResult? Function(_ChangeIndex value)? changeDotIndex,
+    TResult? Function(_ChangeDotIndex value)? changeDotIndex,
   }) {
     return loadProducts?.call(this);
   }
@@ -281,7 +281,7 @@ class _$_LoadProducts implements _LoadProducts {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadOffers value)? loadOffers,
     TResult Function(_LoadProducts value)? loadProducts,
-    TResult Function(_ChangeIndex value)? changeDotIndex,
+    TResult Function(_ChangeDotIndex value)? changeDotIndex,
     required TResult orElse(),
   }) {
     if (loadProducts != null) {
@@ -296,20 +296,20 @@ abstract class _LoadProducts implements HomeEvent {
 }
 
 /// @nodoc
-abstract class _$$_ChangeIndexCopyWith<$Res> {
-  factory _$$_ChangeIndexCopyWith(
-          _$_ChangeIndex value, $Res Function(_$_ChangeIndex) then) =
-      __$$_ChangeIndexCopyWithImpl<$Res>;
+abstract class _$$_ChangeDotIndexCopyWith<$Res> {
+  factory _$$_ChangeDotIndexCopyWith(
+          _$_ChangeDotIndex value, $Res Function(_$_ChangeDotIndex) then) =
+      __$$_ChangeDotIndexCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$_ChangeIndexCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$_ChangeIndex>
-    implements _$$_ChangeIndexCopyWith<$Res> {
-  __$$_ChangeIndexCopyWithImpl(
-      _$_ChangeIndex _value, $Res Function(_$_ChangeIndex) _then)
+class __$$_ChangeDotIndexCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$_ChangeDotIndex>
+    implements _$$_ChangeDotIndexCopyWith<$Res> {
+  __$$_ChangeDotIndexCopyWithImpl(
+      _$_ChangeDotIndex _value, $Res Function(_$_ChangeDotIndex) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -317,7 +317,7 @@ class __$$_ChangeIndexCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$_ChangeIndex(
+    return _then(_$_ChangeDotIndex(
       null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -328,8 +328,8 @@ class __$$_ChangeIndexCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeIndex implements _ChangeIndex {
-  const _$_ChangeIndex(this.index);
+class _$_ChangeDotIndex implements _ChangeDotIndex {
+  const _$_ChangeDotIndex(this.index);
 
   @override
   final int index;
@@ -343,7 +343,7 @@ class _$_ChangeIndex implements _ChangeIndex {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ChangeIndex &&
+            other is _$_ChangeDotIndex &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -353,8 +353,8 @@ class _$_ChangeIndex implements _ChangeIndex {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ChangeIndexCopyWith<_$_ChangeIndex> get copyWith =>
-      __$$_ChangeIndexCopyWithImpl<_$_ChangeIndex>(this, _$identity);
+  _$$_ChangeDotIndexCopyWith<_$_ChangeDotIndex> get copyWith =>
+      __$$_ChangeDotIndexCopyWithImpl<_$_ChangeDotIndex>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -395,7 +395,7 @@ class _$_ChangeIndex implements _ChangeIndex {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadOffers value) loadOffers,
     required TResult Function(_LoadProducts value) loadProducts,
-    required TResult Function(_ChangeIndex value) changeDotIndex,
+    required TResult Function(_ChangeDotIndex value) changeDotIndex,
   }) {
     return changeDotIndex(this);
   }
@@ -405,7 +405,7 @@ class _$_ChangeIndex implements _ChangeIndex {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadOffers value)? loadOffers,
     TResult? Function(_LoadProducts value)? loadProducts,
-    TResult? Function(_ChangeIndex value)? changeDotIndex,
+    TResult? Function(_ChangeDotIndex value)? changeDotIndex,
   }) {
     return changeDotIndex?.call(this);
   }
@@ -415,7 +415,7 @@ class _$_ChangeIndex implements _ChangeIndex {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadOffers value)? loadOffers,
     TResult Function(_LoadProducts value)? loadProducts,
-    TResult Function(_ChangeIndex value)? changeDotIndex,
+    TResult Function(_ChangeDotIndex value)? changeDotIndex,
     required TResult orElse(),
   }) {
     if (changeDotIndex != null) {
@@ -425,12 +425,12 @@ class _$_ChangeIndex implements _ChangeIndex {
   }
 }
 
-abstract class _ChangeIndex implements HomeEvent {
-  const factory _ChangeIndex(final int index) = _$_ChangeIndex;
+abstract class _ChangeDotIndex implements HomeEvent {
+  const factory _ChangeDotIndex(final int index) = _$_ChangeDotIndex;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$_ChangeIndexCopyWith<_$_ChangeIndex> get copyWith =>
+  _$$_ChangeDotIndexCopyWith<_$_ChangeDotIndex> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
