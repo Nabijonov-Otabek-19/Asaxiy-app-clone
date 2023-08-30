@@ -66,10 +66,12 @@ class _ProductListScreenState extends State<ProductListScreen> {
             ),
             body: Builder(
               builder: (context) {
-                if (state.status == Status.LOADING ||
-                    state.productList.isEmpty) {
-                  return const Center(child: CircularProgressIndicator());
+                if (state.status == Status.LOADING) {
+                  return Center(
+                      child: CircularProgressIndicator(
+                          backgroundColor: background));
                 } else if (state.status == Status.ERROR) {
+                  logger("Screen error = ${state.error}");
                   return Center(
                     child: Text(
                       state.error,

@@ -30,7 +30,7 @@ class ProductListBloc extends Bloc<ProductListEvent, ProductListState> {
 
     if (data.status == Status.COMPLETED) {
       emit(state.copyWith(productList: data.data!, status: data.status));
-    } else {
+    } else if(data.status == Status.ERROR) {
       emit(state.copyWith(error: data.message ?? "", status: data.status));
     }
   }

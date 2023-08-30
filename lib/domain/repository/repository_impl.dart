@@ -18,6 +18,7 @@ class RepositoryImpl extends Repository {
 
       return ApiResponse.completed(list);
     } catch (e) {
+      toast("Get offers error catch = $e");
       return ApiResponse.error(e.toString());
     }
   }
@@ -40,7 +41,6 @@ class RepositoryImpl extends Repository {
             await categoryDoc.reference.collection(PRODUCTLIST).get();
 
         for (var productDoc in productSnapshot.docs) {
-          logger("ProductSnapshot");
           ProductModel product = ProductModel(
             await productDoc['id'],
             await productDoc['title'],
@@ -52,15 +52,13 @@ class RepositoryImpl extends Repository {
             await productDoc['categoryName'],
           );
           products.add(product);
-          logger(products.toString());
         }
       } else {
-        logger("Empty");
-        return ApiResponse.error("There is no products");
+        return ApiResponse.error("Coming soon...");
       }
       return ApiResponse.completed(products);
     } catch (e) {
-      logger("Error = $e");
+      toast("Get products by category error catch = $e");
       return ApiResponse.error(e.toString());
     }
   }
@@ -71,6 +69,7 @@ class RepositoryImpl extends Repository {
       // get new products
       return ApiResponse.completed([]);
     } catch (e) {
+      toast("Get new products error catch = $e");
       return ApiResponse.error(e.toString());
     }
   }
@@ -86,6 +85,7 @@ class RepositoryImpl extends Repository {
 
       return ApiResponse.completed(list);
     } catch (e) {
+      toast("Get categories error catch = $e");
       return ApiResponse.error(e.toString());
     }
   }

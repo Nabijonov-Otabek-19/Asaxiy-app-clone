@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
               width: double.infinity,
               color: background,
               child: Builder(builder: (context) {
-                if (state.status == Status.LOADING || state.offerList.isEmpty) {
+                if (state.status == Status.LOADING) {
                   return const Center(child: CircularProgressIndicator());
                 } else if (state.status == Status.ERROR) {
                   return Center(
