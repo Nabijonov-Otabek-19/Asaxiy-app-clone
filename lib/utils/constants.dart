@@ -8,6 +8,8 @@ const String CATEGORIES = "categories";
 const String OFFERS = "offers";
 const String PRODUCTLIST = "productList";
 
+const DBNAME = "products";
+
 const pages = <Widget>[
   HomeScreen(),
   MenuScreen(),
