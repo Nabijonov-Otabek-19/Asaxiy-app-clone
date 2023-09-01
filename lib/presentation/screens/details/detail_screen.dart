@@ -59,7 +59,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     widgetDetailImageSlider(
                         widget.model.images,
                         100,
-                        100,
+                        200,
                         (index) =>
                             _bloc.add(DetailsEvent.changeDotIndex(index)),
                         state.activeIndex),

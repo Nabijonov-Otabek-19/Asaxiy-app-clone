@@ -45,7 +45,6 @@ Widget widgetDetailImageSlider(List<String> imgList, double itemWidth,
                 width: itemWidth,
                 height: itemHeight,
                 fadeInCurve: Curves.easeInOut,
-                fit: BoxFit.fill,
                 imageUrl: imgUrl,
                 errorWidget: (context, url, error) =>
                     Image.asset("assets/gif/loading.gif"),
