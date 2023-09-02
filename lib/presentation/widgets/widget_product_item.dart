@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 
 import '../../theme/colors.dart';
 
-Widget widgetProductItem(
-    ProductModel model, double itemWidth, double itemHeight) {
+Widget widgetProductItem(ProductModel model, double itemWidth,
+    double itemHeight, Function(ProductModel model) onAddCartTap) {
   return Card(
     elevation: 4,
     surfaceTintColor: Colors.white,
@@ -99,6 +99,7 @@ Widget widgetProductItem(
                 ),
                 onPressed: () {
                   // add to cart (hive)
+                  onAddCartTap(model);
                   toast("Item saved to cart");
                 },
                 icon: const Icon(

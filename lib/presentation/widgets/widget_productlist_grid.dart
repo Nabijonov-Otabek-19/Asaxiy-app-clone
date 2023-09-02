@@ -4,7 +4,9 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 Widget widgetProductListGrid(
-    List<ProductModel> list, Function(ProductModel model) onTap) {
+    List<ProductModel> list,
+    Function(ProductModel model) onTap,
+    Function(ProductModel model) onAddCartTap) {
   final controller = ScrollController();
 
   return LayoutBuilder(
@@ -29,7 +31,12 @@ Widget widgetProductListGrid(
           return GridTile(
             child: GestureDetector(
               onTap: () => onTap(list[index]),
-              child: widgetProductItem(list[index], itemWidth, itemHeight),
+              child: widgetProductItem(
+                list[index],
+                itemWidth,
+                itemHeight,
+                (model) => onAddCartTap,
+              ),
             ),
           );
         },

@@ -1,9 +1,8 @@
+import 'package:asaxiy_clone/data/model_db/product_model_db.dart';
 import 'package:hive/hive.dart';
 
 import '../../../utils/constants.dart';
-import '../../model/product_model.dart';
 
 class DB {
-  //static final _box = Hive.box<ProductModel>(DBNAME);
-
+   final box = Hive.box<ProductModelDB>(DBNAME);
 }

@@ -1,3 +1,5 @@
+import 'package:asaxiy_clone/data/model_db/product_model_db.dart';
+import 'package:asaxiy_clone/data/source/local/local_db.dart';
 import 'package:asaxiy_clone/domain/repository/repository.dart';
 import 'package:asaxiy_clone/presentation/screens/details/detail_screen.dart';
 import 'package:asaxiy_clone/presentation/screens/product_list/bloc/product_list_bloc.dart';
@@ -25,6 +27,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
 
   final TextEditingController _searchBarController = TextEditingController();
   final FocusNode _searchFocusNode = FocusNode();
+  final _scrollController = ScrollController();
 
   @override
   void initState() {
@@ -37,6 +40,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
     _bloc.close();
     _searchBarController.dispose();
     _searchFocusNode.dispose();
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -82,54 +86,71 @@ class _ProductListScreenState extends State<ProductListScreen> {
                 return Container(
                   color: background,
                   width: MediaQuery.of(context).size.width,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 12, horizontal: 16),
-                        child: Text(
-                          widget.category,
-                          textAlign: TextAlign.start,
-                          style: const TextStyle(
-                              fontSize: 24, fontWeight: FontWeight.bold),
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.vertical,
+                    controller: _scrollController,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 12, horizontal: 16),
+                          child: Text(
+                            widget.category,
+                            textAlign: TextAlign.start,
+                            style: const TextStyle(
+                                fontSize: 24, fontWeight: FontWeight.bold),
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              "assets/images/ic_menu.png",
-                              width: 18,
-                              height: 18,
-                            ),
-                            const Row(
-                              children: [
-                                Text("Saralash",
-                                    style: TextStyle(fontSize: 14)),
-                                Icon(Icons.keyboard_arrow_down, size: 24),
-                              ],
-                            ),
-                            const Icon(Icons.filter_list, size: 24),
-                          ],
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                "assets/images/ic_menu.png",
+                                width: 18,
+                                height: 18,
+                              ),
+                              const Row(
+                                children: [
+                                  Text("Saralash",
+                                      style: TextStyle(fontSize: 14)),
+                                  Icon(Icons.keyboard_arrow_down, size: 24),
+                                ],
+                              ),
+                              const Icon(Icons.filter_list, size: 24),
+                            ],
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: 8),
-                      widgetProductListGrid(
-                        state.productList,
-                        (model) {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    DetailsScreen(model: model),
-                              ));
-                        },
-                      ),
-                    ],
+                        const SizedBox(height: 8),
+                        widgetProductListGrid(
+                          state.productList,
+                          (model) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      DetailsScreen(model: model),
+                                ));
+                          },
+                          (model) {
+                            // add to cart
+                            di.get<DB>().box.add(ProductModelDB(
+                                  model.id,
+                                  model.title,
+                                  model.description,
+                                  model.price,
+                                  model.stars,
+                                  model.state,
+                                  model.images,
+                                  model.categoryName,
+                                ));
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 );
               },
