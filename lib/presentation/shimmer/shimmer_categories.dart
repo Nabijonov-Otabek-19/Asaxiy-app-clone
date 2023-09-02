@@ -1,9 +1,10 @@
+import 'package:asaxiy_clone/utils/constants.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-class ShimmerOffers extends StatelessWidget {
-  const ShimmerOffers({super.key});
+class ShimmerCategories extends StatelessWidget {
+  const ShimmerCategories({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class ShimmerOffers extends StatelessWidget {
               shrinkWrap: true,
               dragStartBehavior: DragStartBehavior.down,
               clipBehavior: Clip.hardEdge,
-              itemCount: 10,
+              itemCount: 8,
               scrollDirection: Axis.vertical,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 4,
@@ -38,21 +39,26 @@ class ShimmerOffers extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Shimmer.fromColors(
-                        baseColor: Colors.grey.withOpacity(0.1),
-                        highlightColor: Colors.grey.withOpacity(0.3),
-                        child: Container(
-                          padding: const EdgeInsets.all(14),
-                          width: itemWidth,
-                          height: itemHeight,
+                        baseColor: Colors.grey.withOpacity(baseColor),
+                        highlightColor: Colors.grey.withOpacity(highlightColor),
+                        child: Card(
+                          elevation: 2,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8)),
+                          child: Container(
+                            padding: const EdgeInsets.all(4),
+                            width: itemWidth,
+                            height: itemHeight,
+                          ),
                         ),
                       ),
                       const SizedBox(height: 4),
                       Shimmer.fromColors(
-                        baseColor: Colors.grey.withOpacity(0.1),
-                        highlightColor: Colors.grey.withOpacity(0.3),
+                        baseColor: Colors.grey.withOpacity(baseColor),
+                        highlightColor: Colors.grey.withOpacity(highlightColor),
                         child: Container(
-                          width: 150,
-                          height: 25,
+                          width: 20,
+                          height: 4,
                           color: Colors.white,
                         ),
                       ),

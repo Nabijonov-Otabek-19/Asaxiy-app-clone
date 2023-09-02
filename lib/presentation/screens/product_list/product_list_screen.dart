@@ -69,52 +69,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
             body: Builder(
               builder: (context) {
                 if (state.status == Status.LOADING) {
-                  return Container(
-                    color: background,
-                    width: MediaQuery.of(context).size.width,
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.vertical,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 12, horizontal: 16),
-                            child: Text(
-                              widget.category,
-                              textAlign: TextAlign.start,
-                              style: const TextStyle(
-                                  fontSize: 24, fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 16),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  "assets/images/ic_menu.png",
-                                  width: 18,
-                                  height: 18,
-                                ),
-                                const Row(
-                                  children: [
-                                    Text("Saralash",
-                                        style: TextStyle(fontSize: 14)),
-                                    Icon(Icons.keyboard_arrow_down, size: 24),
-                                  ],
-                                ),
-                                const Icon(Icons.filter_list, size: 24),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-                          const ShimmerProductListGrid(),
-                        ],
-                      ),
-                    ),
-                  );
+                  return ShimmerProductListGrid(category: widget.category);
                 } else if (state.status == Status.ERROR) {
                   logger("Screen error = ${state.error}");
                   return Center(
