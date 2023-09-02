@@ -10,6 +10,9 @@ const String PRODUCTLIST = "productList";
 
 const DBNAME = "products";
 
+const baseColor = 0.1;
+const highlightColor = 0.3;
+
 const pages = <Widget>[
   HomeScreen(),
   MenuScreen(),
