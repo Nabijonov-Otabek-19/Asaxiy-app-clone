@@ -23,4 +23,12 @@ class ProductModelDB {
 
   ProductModelDB(this.id, this.title, this.description, this.price, this.stars,
       this.state, this.images, this.categoryName);
+
+  @override
+  bool operator ==(other) {
+    return other is ProductModelDB && other.id == id;
+  }
+
+  @override
+  int get hashCode => id.hashCode;
 }

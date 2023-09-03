@@ -1,5 +1,4 @@
 import 'package:asaxiy_clone/data/model/models.dart';
-import 'package:asaxiy_clone/utils/output_utils.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -98,9 +97,7 @@ Widget widgetProductItem(ProductModel model, double itemWidth,
                   ),
                 ),
                 onPressed: () {
-                  // add to cart (hive)
                   onAddCartTap(model);
-                  toast("Item saved to cart");
                 },
                 icon: const Icon(
                   Icons.shopping_cart,

@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 Widget widgetProductListGrid(
     List<ProductModel> list,
     Function(ProductModel model) onTap,
-    Function(ProductModel model) onAddCartTap) {
+    Function(ProductModel cartModel) onAddCartTap) {
   final controller = ScrollController();
 
   return LayoutBuilder(
@@ -35,7 +35,7 @@ Widget widgetProductListGrid(
                 list[index],
                 itemWidth,
                 itemHeight,
-                (model) => onAddCartTap,
+                (model) => onAddCartTap(model),
               ),
             ),
           );

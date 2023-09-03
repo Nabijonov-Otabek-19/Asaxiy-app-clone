@@ -1,5 +1,6 @@
 import 'package:asaxiy_clone/data/model_db/product_model_db.dart';
 import 'package:asaxiy_clone/theme/colors.dart';
+import 'package:asaxiy_clone/utils/output_utils.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
@@ -18,6 +19,12 @@ class _CartScreenState extends State<CartScreen> {
   final _scrollController = ScrollController();
 
   @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -25,85 +32,149 @@ class _CartScreenState extends State<CartScreen> {
       ),
       body: Container(
         color: background,
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: ValueListenableBuilder(
-            valueListenable: di.get<DB>().box.listenable(),
-            builder: (context, items, child) {
-              List<int> keys = items.keys.cast<int>().toList();
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: ValueListenableBuilder(
+          valueListenable: di.get<DB>().box.listenable(),
+          builder: (context, items, child) {
+            List<int> keys = items.keys.cast<int>().toList();
 
-              return keys.isEmpty
-                  ? const Center(
-                      child: Text(
-                        'No Data',
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    )
-                  : Container(
-                      color: background,
-                      width: MediaQuery.of(context).size.width,
-                      child: ListView.builder(
-                        controller: _scrollController,
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        itemCount: keys.length,
-                        itemBuilder: (_, index) {
-                          final int key = keys[index];
+            return keys.isEmpty
+                ? const Center(
+                    child: Text(
+                      'No Data',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                  )
+                : ListView.builder(
+                    controller: _scrollController,
+                    shrinkWrap: true,
+                    padding: const EdgeInsets.all(8),
+                    scrollDirection: Axis.vertical,
+                    itemCount: keys.length,
+                    itemBuilder: (_, index) {
+                      final int key = keys[index];
+                      final ProductModelDB data = items.get(key) ??
+                          ProductModelDB(0, "", "", 0, 0, "", [], "");
 
-                          final ProductModelDB data = items.get(key) ??
-                              ProductModelDB(0, "", "", 0, 0, "", [], "");
-
-                          // Widget added to cart
-                          return Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 8,
-                              vertical: 4,
-                            ),
-                            width: double.infinity,
-                            color: background,
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  flex: 1,
-                                  child: CachedNetworkImage(
-                                    fit: BoxFit.fill,
-                                    placeholder: (context, url) =>
-                                        Image.asset("assets/gif/loading.gif"),
-                                    imageUrl: data.images[0],
-                                  ),
+                      return Container(
+                        margin: const EdgeInsets.all(4),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 6,
+                          vertical: 8,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        width: double.infinity,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(4),
+                                child: CachedNetworkImage(
+                                  fit: BoxFit.fill,
+                                  placeholder: (context, url) =>
+                                      Image.asset("assets/gif/loading.gif"),
+                                  imageUrl: data.images[0],
+                                  width: 60,
+                                  height: 90,
                                 ),
-                                Expanded(
-                                  flex: 1,
-                                  child: Column(
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              flex: 3,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                verticalDirection: VerticalDirection.down,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
-                                      Text(
-                                        data.title,
-                                        overflow: TextOverflow.ellipsis,
-                                        maxLines: 1,
-                                        style: const TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold,
+                                      Expanded(
+                                        child: Text(
+                                          data.title,
+                                          overflow: TextOverflow.ellipsis,
+                                          maxLines: 2,
+                                          style: const TextStyle(
+                                            fontSize: 14,
+                                          ),
                                         ),
                                       ),
-                                      Text(
-                                        data.description,
-                                        overflow: TextOverflow.ellipsis,
-                                        maxLines: 2,
-                                        style: const TextStyle(
-                                          fontSize: 12,
+                                      IconButton(
+                                        icon: const Icon(
+                                          Icons.delete_outline,
+                                          size: 24,
                                         ),
+                                        color: Colors.red,
+                                        onPressed: () {
+                                          // delete from DB
+                                          di.get<DB>().box.delete(key);
+                                          setState(() {});
+                                          toast("Item deleted");
+                                        },
                                       ),
                                     ],
                                   ),
-                                ),
-                              ],
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      // price
+                                      Text(
+                                        "${data.price} so'm",
+                                        style: const TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+
+                                      Row(
+                                        children: [
+                                          Card(
+                                            color: background,
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(8)),
+                                            child: const Icon(
+                                              Icons.remove,
+                                              color: Colors.blue,
+                                            ),
+                                          ),
+                                          const SizedBox(width: 6),
+                                          const Text("1"),
+                                          const SizedBox(width: 6),
+                                          Card(
+                                            color: background,
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(8)),
+                                            child: const Icon(
+                                              Icons.add,
+                                              color: Colors.blue,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
-                          );
-                        },
-                      ),
-                    );
-            },
-          ),
+                          ],
+                        ),
+                      );
+                    },
+                  );
+          },
         ),
       ),
     );
