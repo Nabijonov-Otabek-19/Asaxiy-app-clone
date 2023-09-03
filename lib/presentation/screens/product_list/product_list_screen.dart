@@ -8,7 +8,6 @@ import 'package:asaxiy_clone/presentation/widgets/widget_productlist_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../data/model/product_model.dart';
 import '../../../di/di.dart';
 import '../../../theme/colors.dart';
 import '../../../utils/network_call_handle.dart';
@@ -148,10 +147,17 @@ class _ProductListScreenState extends State<ProductListScreen> {
                             if (existingModel.id != -1) {
                               // Handle duplicate model
                               // You can choose to update the existing model or skip adding the duplicate
-                              toast("Already added to cart");
                             } else {
-                              _addToCart(cartModel);
-                              toast("Product is added to cart");
+                              _bloc.add(ProductListEvent.addToCart(
+                                  ProductModelDB(
+                                      cartModel.id,
+                                      cartModel.title,
+                                      cartModel.description,
+                                      cartModel.price,
+                                      cartModel.stars,
+                                      cartModel.state,
+                                      cartModel.images,
+                                      cartModel.categoryName)));
                             }
                           },
                         ),
@@ -165,18 +171,5 @@ class _ProductListScreenState extends State<ProductListScreen> {
         },
       ),
     );
-  }
-
-  Future<void> _addToCart(ProductModel model) async {
-    await di.get<DB>().box.add(ProductModelDB(
-          model.id,
-          model.title,
-          model.description,
-          model.price,
-          model.stars,
-          model.state,
-          model.images,
-          model.categoryName,
-        ));
   }
 }

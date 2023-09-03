@@ -18,33 +18,40 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CartEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(List<int> keys, Box<ProductModelDB> items)
+        totalSum,
+    required TResult Function(int count) totalCount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function(List<int> keys, Box<ProductModelDB> items)? totalSum,
+    TResult? Function(int count)? totalCount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(List<int> keys, Box<ProductModelDB> items)? totalSum,
+    TResult Function(int count)? totalCount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_TotalSum value) totalSum,
+    required TResult Function(_TotalCount value) totalCount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_TotalSum value)? totalSum,
+    TResult? Function(_TotalCount value)? totalCount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_TotalSum value)? totalSum,
+    TResult Function(_TotalCount value)? totalCount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -68,63 +75,109 @@ class _$CartEventCopyWithImpl<$Res, $Val extends CartEvent>
 }
 
 /// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
+abstract class _$$_TotalSumCopyWith<$Res> {
+  factory _$$_TotalSumCopyWith(
+          _$_TotalSum value, $Res Function(_$_TotalSum) then) =
+      __$$_TotalSumCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<int> keys, Box<ProductModelDB> items});
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res>
-    extends _$CartEventCopyWithImpl<$Res, _$_Started>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+class __$$_TotalSumCopyWithImpl<$Res>
+    extends _$CartEventCopyWithImpl<$Res, _$_TotalSum>
+    implements _$$_TotalSumCopyWith<$Res> {
+  __$$_TotalSumCopyWithImpl(
+      _$_TotalSum _value, $Res Function(_$_TotalSum) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? keys = null,
+    Object? items = null,
+  }) {
+    return _then(_$_TotalSum(
+      null == keys
+          ? _value._keys
+          : keys // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      null == items
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
+              as Box<ProductModelDB>,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started();
+class _$_TotalSum implements _TotalSum {
+  const _$_TotalSum(final List<int> keys, this.items) : _keys = keys;
+
+  final List<int> _keys;
+  @override
+  List<int> get keys {
+    if (_keys is EqualUnmodifiableListView) return _keys;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_keys);
+  }
+
+  @override
+  final Box<ProductModelDB> items;
 
   @override
   String toString() {
-    return 'CartEvent.started()';
+    return 'CartEvent.totalSum(keys: $keys, items: $items)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Started);
+        (other.runtimeType == runtimeType &&
+            other is _$_TotalSum &&
+            const DeepCollectionEquality().equals(other._keys, _keys) &&
+            (identical(other.items, items) || other.items == items));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_keys), items);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_TotalSumCopyWith<_$_TotalSum> get copyWith =>
+      __$$_TotalSumCopyWithImpl<_$_TotalSum>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(List<int> keys, Box<ProductModelDB> items)
+        totalSum,
+    required TResult Function(int count) totalCount,
   }) {
-    return started();
+    return totalSum(keys, items);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function(List<int> keys, Box<ProductModelDB> items)? totalSum,
+    TResult? Function(int count)? totalCount,
   }) {
-    return started?.call();
+    return totalSum?.call(keys, items);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(List<int> keys, Box<ProductModelDB> items)? totalSum,
+    TResult Function(int count)? totalCount,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (totalSum != null) {
+      return totalSum(keys, items);
     }
     return orElse();
   }
@@ -132,51 +185,197 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_TotalSum value) totalSum,
+    required TResult Function(_TotalCount value) totalCount,
   }) {
-    return started(this);
+    return totalSum(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_TotalSum value)? totalSum,
+    TResult? Function(_TotalCount value)? totalCount,
   }) {
-    return started?.call(this);
+    return totalSum?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_TotalSum value)? totalSum,
+    TResult Function(_TotalCount value)? totalCount,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (totalSum != null) {
+      return totalSum(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements CartEvent {
-  const factory _Started() = _$_Started;
+abstract class _TotalSum implements CartEvent {
+  const factory _TotalSum(
+      final List<int> keys, final Box<ProductModelDB> items) = _$_TotalSum;
+
+  List<int> get keys;
+  Box<ProductModelDB> get items;
+  @JsonKey(ignore: true)
+  _$$_TotalSumCopyWith<_$_TotalSum> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_TotalCountCopyWith<$Res> {
+  factory _$$_TotalCountCopyWith(
+          _$_TotalCount value, $Res Function(_$_TotalCount) then) =
+      __$$_TotalCountCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int count});
+}
+
+/// @nodoc
+class __$$_TotalCountCopyWithImpl<$Res>
+    extends _$CartEventCopyWithImpl<$Res, _$_TotalCount>
+    implements _$$_TotalCountCopyWith<$Res> {
+  __$$_TotalCountCopyWithImpl(
+      _$_TotalCount _value, $Res Function(_$_TotalCount) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? count = null,
+  }) {
+    return _then(_$_TotalCount(
+      null == count
+          ? _value.count
+          : count // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_TotalCount implements _TotalCount {
+  const _$_TotalCount(this.count);
+
+  @override
+  final int count;
+
+  @override
+  String toString() {
+    return 'CartEvent.totalCount(count: $count)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_TotalCount &&
+            (identical(other.count, count) || other.count == count));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, count);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_TotalCountCopyWith<_$_TotalCount> get copyWith =>
+      __$$_TotalCountCopyWithImpl<_$_TotalCount>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<int> keys, Box<ProductModelDB> items)
+        totalSum,
+    required TResult Function(int count) totalCount,
+  }) {
+    return totalCount(count);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<int> keys, Box<ProductModelDB> items)? totalSum,
+    TResult? Function(int count)? totalCount,
+  }) {
+    return totalCount?.call(count);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<int> keys, Box<ProductModelDB> items)? totalSum,
+    TResult Function(int count)? totalCount,
+    required TResult orElse(),
+  }) {
+    if (totalCount != null) {
+      return totalCount(count);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_TotalSum value) totalSum,
+    required TResult Function(_TotalCount value) totalCount,
+  }) {
+    return totalCount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_TotalSum value)? totalSum,
+    TResult? Function(_TotalCount value)? totalCount,
+  }) {
+    return totalCount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_TotalSum value)? totalSum,
+    TResult Function(_TotalCount value)? totalCount,
+    required TResult orElse(),
+  }) {
+    if (totalCount != null) {
+      return totalCount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TotalCount implements CartEvent {
+  const factory _TotalCount(final int count) = _$_TotalCount;
+
+  int get count;
+  @JsonKey(ignore: true)
+  _$$_TotalCountCopyWith<_$_TotalCount> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$CartState {
+  int get totalSum => throw _privateConstructorUsedError;
+  int get totalCount => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function(int totalSum, int totalCount) initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function(int totalSum, int totalCount)? initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function(int totalSum, int totalCount)? initial,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -196,12 +395,18 @@ mixin _$CartState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $CartStateCopyWith<CartState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $CartStateCopyWith<$Res> {
   factory $CartStateCopyWith(CartState value, $Res Function(CartState) then) =
       _$CartStateCopyWithImpl<$Res, CartState>;
+  @useResult
+  $Res call({int totalSum, int totalCount});
 }
 
 /// @nodoc
@@ -213,13 +418,34 @@ class _$CartStateCopyWithImpl<$Res, $Val extends CartState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? totalSum = null,
+    Object? totalCount = null,
+  }) {
+    return _then(_value.copyWith(
+      totalSum: null == totalSum
+          ? _value.totalSum
+          : totalSum // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalCount: null == totalCount
+          ? _value.totalCount
+          : totalCount // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
+abstract class _$$_InitialCopyWith<$Res> implements $CartStateCopyWith<$Res> {
   factory _$$_InitialCopyWith(
           _$_Initial value, $Res Function(_$_Initial) then) =
       __$$_InitialCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int totalSum, int totalCount});
 }
 
 /// @nodoc
@@ -228,51 +454,87 @@ class __$$_InitialCopyWithImpl<$Res>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? totalSum = null,
+    Object? totalCount = null,
+  }) {
+    return _then(_$_Initial(
+      totalSum: null == totalSum
+          ? _value.totalSum
+          : totalSum // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalCount: null == totalCount
+          ? _value.totalCount
+          : totalCount // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_Initial implements _Initial {
-  const _$_Initial();
+  const _$_Initial({this.totalSum = 0, this.totalCount = 0});
+
+  @override
+  @JsonKey()
+  final int totalSum;
+  @override
+  @JsonKey()
+  final int totalCount;
 
   @override
   String toString() {
-    return 'CartState.initial()';
+    return 'CartState.initial(totalSum: $totalSum, totalCount: $totalCount)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType &&
+            other is _$_Initial &&
+            (identical(other.totalSum, totalSum) ||
+                other.totalSum == totalSum) &&
+            (identical(other.totalCount, totalCount) ||
+                other.totalCount == totalCount));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, totalSum, totalCount);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_InitialCopyWith<_$_Initial> get copyWith =>
+      __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function(int totalSum, int totalCount) initial,
   }) {
-    return initial();
+    return initial(totalSum, totalCount);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function(int totalSum, int totalCount)? initial,
   }) {
-    return initial?.call();
+    return initial?.call(totalSum, totalCount);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function(int totalSum, int totalCount)? initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial();
+      return initial(totalSum, totalCount);
     }
     return orElse();
   }
@@ -307,5 +569,15 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements CartState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial({final int totalSum, final int totalCount}) =
+      _$_Initial;
+
+  @override
+  int get totalSum;
+  @override
+  int get totalCount;
+  @override
+  @JsonKey(ignore: true)
+  _$$_InitialCopyWith<_$_Initial> get copyWith =>
+      throw _privateConstructorUsedError;
 }
