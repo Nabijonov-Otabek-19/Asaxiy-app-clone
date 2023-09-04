@@ -7,30 +7,40 @@ class ShimmerOffers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Shimmer.fromColors(
-          baseColor: Colors.grey.withOpacity(baseColor),
-          highlightColor: Colors.grey.withOpacity(highlightColor),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: const SizedBox(
-              width: 200,
-              height: 160,
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.symmetric(horizontal: 30),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      height: 160,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Shimmer.fromColors(
+            baseColor: Colors.grey.withOpacity(baseColor),
+            highlightColor: Colors.grey.withOpacity(highlightColor),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: const SizedBox(
+                width: 200,
+                height: 140,
+              ),
             ),
           ),
-        ),
-        const SizedBox(height: 8),
-        Shimmer.fromColors(
-          baseColor: Colors.grey.withOpacity(baseColor),
-          highlightColor: Colors.grey.withOpacity(highlightColor),
-          child: const SizedBox(
-            width: 30,
-            height: 4,
+          const SizedBox(height: 8),
+          Shimmer.fromColors(
+            baseColor: Colors.grey.withOpacity(baseColor),
+            highlightColor: Colors.grey.withOpacity(highlightColor),
+            child: const SizedBox(
+              width: 30,
+              height: 4,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

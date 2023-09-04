@@ -17,7 +17,7 @@ class ProductModelDBAdapter extends TypeAdapter<ProductModelDB> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return ProductModelDB(
-      fields[0] as int,
+      fields[0] as String,
       fields[1] as String,
       fields[2] as String,
       fields[3] as int,

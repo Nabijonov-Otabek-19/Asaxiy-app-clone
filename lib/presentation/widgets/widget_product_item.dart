@@ -41,7 +41,7 @@ Widget widgetProductItem(ProductModel model, double itemWidth,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 6),
+          const Spacer(flex: 1),
           Text(
             "${model.price} so'm",
             style: TextStyle(
@@ -59,7 +59,7 @@ Widget widgetProductItem(ProductModel model, double itemWidth,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 6),
+          const Spacer(flex: 1),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -90,8 +90,8 @@ Widget widgetProductItem(ProductModel model, double itemWidth,
                   shape: MaterialStatePropertyAll(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(16),
-                        bottomLeft: Radius.circular(16),
+                        topRight: Radius.circular(12),
+                        bottomLeft: Radius.circular(12),
                       ),
                     ),
                   ),

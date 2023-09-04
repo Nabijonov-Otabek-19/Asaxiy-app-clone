@@ -5,7 +5,7 @@ part 'product_model_db.g.dart';
 @HiveType(typeId: 0)
 class ProductModelDB {
   @HiveField(0)
-  final int id;
+  final String id;
   @HiveField(1)
   final String title;
   @HiveField(2)

@@ -86,6 +86,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
                 return Container(
                   color: background,
                   width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height,
                   child: SingleChildScrollView(
                     scrollDirection: Axis.vertical,
                     controller: _scrollController,
@@ -139,18 +140,20 @@ class _ProductListScreenState extends State<ProductListScreen> {
                             // add to cart
                             final box = di.get<DB>().box;
                             // Check if a model with the same id already exists
+                            final cartModelId = (cartModel.categoryName +
+                                cartModel.id.toString());
                             final ProductModelDB existingModel = box.values
-                                .firstWhere((model) => model.id == cartModel.id,
+                                .firstWhere((model) => model.id == cartModelId,
                                     orElse: () => ProductModelDB(
-                                        -1, "", "", 0, 0, "", [], ""));
+                                        "", "", "", 0, 0, "", [], ""));
 
-                            if (existingModel.id != -1) {
+                            if (existingModel.id.isNotEmpty) {
                               // Handle duplicate model
                               // You can choose to update the existing model or skip adding the duplicate
                             } else {
                               _bloc.add(ProductListEvent.addToCart(
                                   ProductModelDB(
-                                      cartModel.id,
+                                      cartModelId,
                                       cartModel.title,
                                       cartModel.description,
                                       cartModel.price,

@@ -46,9 +46,9 @@ class ProductListBloc extends Bloc<ProductListEvent, ProductListState> {
     // Check if a model with the same id already exists
     final ProductModelDB existingModel = box.values.firstWhere(
         (model) => model.id == event.modelDB.id,
-        orElse: () => ProductModelDB(-1, "", "", 0, 0, "", [], ""));
+        orElse: () => ProductModelDB("", "", "", 0, 0, "", [], ""));
 
-    if (existingModel.id != -1) {
+    if (existingModel.id.isNotEmpty) {
       // Handle duplicate model
       // You can choose to update the existing model or skip adding the duplicate
       toast("Already added to cart");

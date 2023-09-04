@@ -26,7 +26,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 
     for (var key in event.keys) {
       final ProductModelDB data =
-          event.items.get(key) ?? ProductModelDB(0, "", "", 0, 0, "", [], "");
+          event.items.get(key) ?? ProductModelDB("", "", "", 0, 0, "", [], "");
 
       total = total + data.price;
     }

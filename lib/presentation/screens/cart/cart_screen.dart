@@ -22,6 +22,12 @@ class _CartScreenState extends State<CartScreen> {
   final scrollController = ScrollController();
 
   @override
+  void dispose() {
+    _bloc.close();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => _bloc,
@@ -59,7 +65,7 @@ class _CartScreenState extends State<CartScreen> {
                           itemBuilder: (_, index) {
                             final int key = keys[index];
                             final ProductModelDB data = items.get(key) ??
-                                ProductModelDB(0, "", "", 0, 0, "", [], "");
+                                ProductModelDB("", "", "", 0, 0, "", [], "");
 
                             return Container(
                               margin: const EdgeInsets.all(4),
