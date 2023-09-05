@@ -3,8 +3,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../data/model/offer_model.dart';
-import '../../theme/colors.dart';
+import '../../../data/model/offer_model.dart';
+import '../../../theme/colors.dart';
 
 Widget widgetOffer(List<OfferModel> offerList, Function(int index) indexChange,
     int activeIndex) {

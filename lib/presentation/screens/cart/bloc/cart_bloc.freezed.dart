@@ -21,18 +21,21 @@ mixin _$CartEvent {
     required TResult Function(List<int> keys, Box<ProductModelDB> items)
         totalSum,
     required TResult Function(int count) totalCount,
+    required TResult Function(bool isVisible) changeBNvisibility,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<int> keys, Box<ProductModelDB> items)? totalSum,
     TResult? Function(int count)? totalCount,
+    TResult? Function(bool isVisible)? changeBNvisibility,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<int> keys, Box<ProductModelDB> items)? totalSum,
     TResult Function(int count)? totalCount,
+    TResult Function(bool isVisible)? changeBNvisibility,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -40,18 +43,21 @@ mixin _$CartEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_TotalSum value) totalSum,
     required TResult Function(_TotalCount value) totalCount,
+    required TResult Function(_ChangeBNvisibility value) changeBNvisibility,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_TotalSum value)? totalSum,
     TResult? Function(_TotalCount value)? totalCount,
+    TResult? Function(_ChangeBNvisibility value)? changeBNvisibility,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TotalSum value)? totalSum,
     TResult Function(_TotalCount value)? totalCount,
+    TResult Function(_ChangeBNvisibility value)? changeBNvisibility,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -156,6 +162,7 @@ class _$_TotalSum implements _TotalSum {
     required TResult Function(List<int> keys, Box<ProductModelDB> items)
         totalSum,
     required TResult Function(int count) totalCount,
+    required TResult Function(bool isVisible) changeBNvisibility,
   }) {
     return totalSum(keys, items);
   }
@@ -165,6 +172,7 @@ class _$_TotalSum implements _TotalSum {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<int> keys, Box<ProductModelDB> items)? totalSum,
     TResult? Function(int count)? totalCount,
+    TResult? Function(bool isVisible)? changeBNvisibility,
   }) {
     return totalSum?.call(keys, items);
   }
@@ -174,6 +182,7 @@ class _$_TotalSum implements _TotalSum {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<int> keys, Box<ProductModelDB> items)? totalSum,
     TResult Function(int count)? totalCount,
+    TResult Function(bool isVisible)? changeBNvisibility,
     required TResult orElse(),
   }) {
     if (totalSum != null) {
@@ -187,6 +196,7 @@ class _$_TotalSum implements _TotalSum {
   TResult map<TResult extends Object?>({
     required TResult Function(_TotalSum value) totalSum,
     required TResult Function(_TotalCount value) totalCount,
+    required TResult Function(_ChangeBNvisibility value) changeBNvisibility,
   }) {
     return totalSum(this);
   }
@@ -196,6 +206,7 @@ class _$_TotalSum implements _TotalSum {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_TotalSum value)? totalSum,
     TResult? Function(_TotalCount value)? totalCount,
+    TResult? Function(_ChangeBNvisibility value)? changeBNvisibility,
   }) {
     return totalSum?.call(this);
   }
@@ -205,6 +216,7 @@ class _$_TotalSum implements _TotalSum {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TotalSum value)? totalSum,
     TResult Function(_TotalCount value)? totalCount,
+    TResult Function(_ChangeBNvisibility value)? changeBNvisibility,
     required TResult orElse(),
   }) {
     if (totalSum != null) {
@@ -292,6 +304,7 @@ class _$_TotalCount implements _TotalCount {
     required TResult Function(List<int> keys, Box<ProductModelDB> items)
         totalSum,
     required TResult Function(int count) totalCount,
+    required TResult Function(bool isVisible) changeBNvisibility,
   }) {
     return totalCount(count);
   }
@@ -301,6 +314,7 @@ class _$_TotalCount implements _TotalCount {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<int> keys, Box<ProductModelDB> items)? totalSum,
     TResult? Function(int count)? totalCount,
+    TResult? Function(bool isVisible)? changeBNvisibility,
   }) {
     return totalCount?.call(count);
   }
@@ -310,6 +324,7 @@ class _$_TotalCount implements _TotalCount {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<int> keys, Box<ProductModelDB> items)? totalSum,
     TResult Function(int count)? totalCount,
+    TResult Function(bool isVisible)? changeBNvisibility,
     required TResult orElse(),
   }) {
     if (totalCount != null) {
@@ -323,6 +338,7 @@ class _$_TotalCount implements _TotalCount {
   TResult map<TResult extends Object?>({
     required TResult Function(_TotalSum value) totalSum,
     required TResult Function(_TotalCount value) totalCount,
+    required TResult Function(_ChangeBNvisibility value) changeBNvisibility,
   }) {
     return totalCount(this);
   }
@@ -332,6 +348,7 @@ class _$_TotalCount implements _TotalCount {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_TotalSum value)? totalSum,
     TResult? Function(_TotalCount value)? totalCount,
+    TResult? Function(_ChangeBNvisibility value)? changeBNvisibility,
   }) {
     return totalCount?.call(this);
   }
@@ -341,6 +358,7 @@ class _$_TotalCount implements _TotalCount {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TotalSum value)? totalSum,
     TResult Function(_TotalCount value)? totalCount,
+    TResult Function(_ChangeBNvisibility value)? changeBNvisibility,
     required TResult orElse(),
   }) {
     if (totalCount != null) {
@@ -360,22 +378,167 @@ abstract class _TotalCount implements CartEvent {
 }
 
 /// @nodoc
+abstract class _$$_ChangeBNvisibilityCopyWith<$Res> {
+  factory _$$_ChangeBNvisibilityCopyWith(_$_ChangeBNvisibility value,
+          $Res Function(_$_ChangeBNvisibility) then) =
+      __$$_ChangeBNvisibilityCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool isVisible});
+}
+
+/// @nodoc
+class __$$_ChangeBNvisibilityCopyWithImpl<$Res>
+    extends _$CartEventCopyWithImpl<$Res, _$_ChangeBNvisibility>
+    implements _$$_ChangeBNvisibilityCopyWith<$Res> {
+  __$$_ChangeBNvisibilityCopyWithImpl(
+      _$_ChangeBNvisibility _value, $Res Function(_$_ChangeBNvisibility) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isVisible = null,
+  }) {
+    return _then(_$_ChangeBNvisibility(
+      null == isVisible
+          ? _value.isVisible
+          : isVisible // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeBNvisibility implements _ChangeBNvisibility {
+  const _$_ChangeBNvisibility(this.isVisible);
+
+  @override
+  final bool isVisible;
+
+  @override
+  String toString() {
+    return 'CartEvent.changeBNvisibility(isVisible: $isVisible)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeBNvisibility &&
+            (identical(other.isVisible, isVisible) ||
+                other.isVisible == isVisible));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isVisible);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ChangeBNvisibilityCopyWith<_$_ChangeBNvisibility> get copyWith =>
+      __$$_ChangeBNvisibilityCopyWithImpl<_$_ChangeBNvisibility>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<int> keys, Box<ProductModelDB> items)
+        totalSum,
+    required TResult Function(int count) totalCount,
+    required TResult Function(bool isVisible) changeBNvisibility,
+  }) {
+    return changeBNvisibility(isVisible);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<int> keys, Box<ProductModelDB> items)? totalSum,
+    TResult? Function(int count)? totalCount,
+    TResult? Function(bool isVisible)? changeBNvisibility,
+  }) {
+    return changeBNvisibility?.call(isVisible);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<int> keys, Box<ProductModelDB> items)? totalSum,
+    TResult Function(int count)? totalCount,
+    TResult Function(bool isVisible)? changeBNvisibility,
+    required TResult orElse(),
+  }) {
+    if (changeBNvisibility != null) {
+      return changeBNvisibility(isVisible);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_TotalSum value) totalSum,
+    required TResult Function(_TotalCount value) totalCount,
+    required TResult Function(_ChangeBNvisibility value) changeBNvisibility,
+  }) {
+    return changeBNvisibility(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_TotalSum value)? totalSum,
+    TResult? Function(_TotalCount value)? totalCount,
+    TResult? Function(_ChangeBNvisibility value)? changeBNvisibility,
+  }) {
+    return changeBNvisibility?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_TotalSum value)? totalSum,
+    TResult Function(_TotalCount value)? totalCount,
+    TResult Function(_ChangeBNvisibility value)? changeBNvisibility,
+    required TResult orElse(),
+  }) {
+    if (changeBNvisibility != null) {
+      return changeBNvisibility(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeBNvisibility implements CartEvent {
+  const factory _ChangeBNvisibility(final bool isVisible) =
+      _$_ChangeBNvisibility;
+
+  bool get isVisible;
+  @JsonKey(ignore: true)
+  _$$_ChangeBNvisibilityCopyWith<_$_ChangeBNvisibility> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$CartState {
   int get totalSum => throw _privateConstructorUsedError;
   int get totalCount => throw _privateConstructorUsedError;
+  bool get isVisible => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int totalSum, int totalCount) initial,
+    required TResult Function(int totalSum, int totalCount, bool isVisible)
+        initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int totalSum, int totalCount)? initial,
+    TResult? Function(int totalSum, int totalCount, bool isVisible)? initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int totalSum, int totalCount)? initial,
+    TResult Function(int totalSum, int totalCount, bool isVisible)? initial,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -406,7 +569,7 @@ abstract class $CartStateCopyWith<$Res> {
   factory $CartStateCopyWith(CartState value, $Res Function(CartState) then) =
       _$CartStateCopyWithImpl<$Res, CartState>;
   @useResult
-  $Res call({int totalSum, int totalCount});
+  $Res call({int totalSum, int totalCount, bool isVisible});
 }
 
 /// @nodoc
@@ -424,6 +587,7 @@ class _$CartStateCopyWithImpl<$Res, $Val extends CartState>
   $Res call({
     Object? totalSum = null,
     Object? totalCount = null,
+    Object? isVisible = null,
   }) {
     return _then(_value.copyWith(
       totalSum: null == totalSum
@@ -434,6 +598,10 @@ class _$CartStateCopyWithImpl<$Res, $Val extends CartState>
           ? _value.totalCount
           : totalCount // ignore: cast_nullable_to_non_nullable
               as int,
+      isVisible: null == isVisible
+          ? _value.isVisible
+          : isVisible // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -445,7 +613,7 @@ abstract class _$$_InitialCopyWith<$Res> implements $CartStateCopyWith<$Res> {
       __$$_InitialCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int totalSum, int totalCount});
+  $Res call({int totalSum, int totalCount, bool isVisible});
 }
 
 /// @nodoc
@@ -460,6 +628,7 @@ class __$$_InitialCopyWithImpl<$Res>
   $Res call({
     Object? totalSum = null,
     Object? totalCount = null,
+    Object? isVisible = null,
   }) {
     return _then(_$_Initial(
       totalSum: null == totalSum
@@ -470,6 +639,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.totalCount
           : totalCount // ignore: cast_nullable_to_non_nullable
               as int,
+      isVisible: null == isVisible
+          ? _value.isVisible
+          : isVisible // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -477,7 +650,8 @@ class __$$_InitialCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Initial implements _Initial {
-  const _$_Initial({this.totalSum = 0, this.totalCount = 0});
+  const _$_Initial(
+      {this.totalSum = 0, this.totalCount = 0, this.isVisible = false});
 
   @override
   @JsonKey()
@@ -485,10 +659,13 @@ class _$_Initial implements _Initial {
   @override
   @JsonKey()
   final int totalCount;
+  @override
+  @JsonKey()
+  final bool isVisible;
 
   @override
   String toString() {
-    return 'CartState.initial(totalSum: $totalSum, totalCount: $totalCount)';
+    return 'CartState.initial(totalSum: $totalSum, totalCount: $totalCount, isVisible: $isVisible)';
   }
 
   @override
@@ -499,11 +676,13 @@ class _$_Initial implements _Initial {
             (identical(other.totalSum, totalSum) ||
                 other.totalSum == totalSum) &&
             (identical(other.totalCount, totalCount) ||
-                other.totalCount == totalCount));
+                other.totalCount == totalCount) &&
+            (identical(other.isVisible, isVisible) ||
+                other.isVisible == isVisible));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, totalSum, totalCount);
+  int get hashCode => Object.hash(runtimeType, totalSum, totalCount, isVisible);
 
   @JsonKey(ignore: true)
   @override
@@ -514,27 +693,28 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int totalSum, int totalCount) initial,
+    required TResult Function(int totalSum, int totalCount, bool isVisible)
+        initial,
   }) {
-    return initial(totalSum, totalCount);
+    return initial(totalSum, totalCount, isVisible);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int totalSum, int totalCount)? initial,
+    TResult? Function(int totalSum, int totalCount, bool isVisible)? initial,
   }) {
-    return initial?.call(totalSum, totalCount);
+    return initial?.call(totalSum, totalCount, isVisible);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int totalSum, int totalCount)? initial,
+    TResult Function(int totalSum, int totalCount, bool isVisible)? initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(totalSum, totalCount);
+      return initial(totalSum, totalCount, isVisible);
     }
     return orElse();
   }
@@ -569,13 +749,17 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements CartState {
-  const factory _Initial({final int totalSum, final int totalCount}) =
-      _$_Initial;
+  const factory _Initial(
+      {final int totalSum,
+      final int totalCount,
+      final bool isVisible}) = _$_Initial;
 
   @override
   int get totalSum;
   @override
   int get totalCount;
+  @override
+  bool get isVisible;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>

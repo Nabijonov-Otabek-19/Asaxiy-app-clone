@@ -2,7 +2,7 @@ import 'package:asaxiy_clone/theme/colors.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../../data/model/models.dart';
+import '../../../data/model/models.dart';
 
 Widget widgetCategories(List<MenuModel> list, Function(String category) onTap) {
   final controller = ScrollController();

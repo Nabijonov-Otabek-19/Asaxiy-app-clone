@@ -33,35 +33,35 @@ class _MyHomePageState extends State<MyHomePage> {
       currentIndex: context.watch<MainProvider>().selectedIndex,
       selectedItemColor: blue,
       unselectedItemColor: gray,
+      selectedFontSize: 12,
+      unselectedFontSize: 12,
       onTap: context.read<MainProvider>().onItemTapped,
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,
             activeIcon: const Icon(Icons.home),
             icon: const Icon(Icons.home_outlined),
-            label: "Home"),
+            label: "Bosh sahifa"),
         BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,
-            activeIcon: Image.asset("assets/images/ic_category.png",
-                height: 21, color: blue),
-            icon: Image.asset("assets/images/ic_menu.png",
-                height: 21, color: iconGray),
-            label: "Menu"),
+            activeIcon: const Icon(Icons.menu_open_sharp),
+            icon: const Icon(Icons.menu_open_sharp),
+            label: "Bo'limlar"),
         BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,
             activeIcon: const Icon(Icons.shopping_cart),
             icon: const Icon(Icons.shopping_cart_outlined),
-            label: "Cart"),
+            label: "Savatcha"),
         BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,
             activeIcon: const Icon(Icons.shopping_bag),
             icon: const Icon(Icons.shopping_bag_outlined),
-            label: "Orders"),
+            label: "Buyurtmalar"),
         BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,
             activeIcon: const Icon(Icons.person),
             icon: const Icon(Icons.person_outlined),
-            label: "Profile")
+            label: "Profil")
       ],
     );
   }

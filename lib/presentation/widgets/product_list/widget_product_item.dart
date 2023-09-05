@@ -2,7 +2,7 @@ import 'package:asaxiy_clone/data/model/models.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../theme/colors.dart';
+import '../../../theme/colors.dart';
 
 Widget widgetProductItem(ProductModel model, double itemWidth,
     double itemHeight, Function(ProductModel model) onAddCartTap) {

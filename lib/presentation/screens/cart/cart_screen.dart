@@ -1,5 +1,7 @@
+import 'package:asaxiy_clone/main_provider.dart';
 import 'package:asaxiy_clone/presentation/screens/cart/bloc/cart_bloc.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:asaxiy_clone/presentation/widgets/cart/widget_empty_cart.dart';
+import 'package:asaxiy_clone/presentation/widgets/cart/widget_saved_product_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
@@ -35,7 +37,7 @@ class _CartScreenState extends State<CartScreen> {
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
-              title: const Text("Bucket"),
+              title: const Text("Savatcha"),
             ),
             body: Container(
               color: background,
@@ -49,13 +51,15 @@ class _CartScreenState extends State<CartScreen> {
                   _bloc.add(CartEvent.totalCount(keys.length));
                   _bloc.add(CartEvent.totalSum(keys, items));
 
+                  if (keys.isEmpty) {
+                    _bloc.add(const CartEvent.changeBNvisibility(false));
+                  } else {
+                    _bloc.add(const CartEvent.changeBNvisibility(true));
+                  }
+
                   return keys.isEmpty
-                      ? const Center(
-                          child: Text(
-                            'No Data',
-                            style: TextStyle(fontSize: 30),
-                          ),
-                        )
+                      ? widgetEmptyCart(
+                          () => di.get<MainProvider>().onItemTapped(0))
                       : ListView.builder(
                           controller: scrollController,
                           shrinkWrap: true,
@@ -67,124 +71,20 @@ class _CartScreenState extends State<CartScreen> {
                             final ProductModelDB data = items.get(key) ??
                                 ProductModelDB("", "", "", 0, 0, "", [], "");
 
-                            return Container(
-                              margin: const EdgeInsets.all(4),
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 6,
-                                vertical: 8,
-                              ),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              width: double.infinity,
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Expanded(
-                                    flex: 1,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(4),
-                                      child: CachedNetworkImage(
-                                        fit: BoxFit.fill,
-                                        placeholder: (context, url) =>
-                                            Image.asset(
-                                                "assets/gif/loading.gif"),
-                                        imageUrl: data.images[0],
-                                        width: 60,
-                                        height: 90,
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(width: 10),
-                                  Expanded(
-                                    flex: 3,
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      verticalDirection: VerticalDirection.down,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Expanded(
-                                              child: Text(
-                                                data.title,
-                                                overflow: TextOverflow.ellipsis,
-                                                maxLines: 2,
-                                                style: const TextStyle(
-                                                  fontSize: 14,
-                                                ),
-                                              ),
-                                            ),
-                                            IconButton(
-                                              icon: const Icon(
-                                                Icons.delete_outline,
-                                                size: 24,
-                                              ),
-                                              color: Colors.red,
-                                              onPressed: () {
-                                                // delete from DB
-                                                di.get<DB>().box.delete(key);
-                                                toast("Item deleted");
-                                              },
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            // price
-                                            Text(
-                                              "${data.price} so'm",
-                                              style: const TextStyle(
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-
-                                            Row(
-                                              children: [
-                                                Card(
-                                                  color: background,
-                                                  shape: RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8)),
-                                                  child: const Icon(
-                                                    Icons.remove,
-                                                    color: Colors.blue,
-                                                  ),
-                                                ),
-                                                const SizedBox(width: 6),
-                                                const Text("1"),
-                                                const SizedBox(width: 6),
-                                                Card(
-                                                  color: background,
-                                                  shape: RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8)),
-                                                  child: const Icon(
-                                                    Icons.add,
-                                                    color: Colors.blue,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
+                            return WidgetSavedProductItem(
+                              data: data,
+                              onDeleteTap: () {
+                                di.get<DB>().box.delete(key);
+                                toast("Item deleted");
+                              },
+                              onMinusTap: () {
+                                // minus
+                                toast("Minus");
+                              },
+                              onPlusTap: () {
+                                // plus
+                                toast("Plus");
+                              },
                             );
                           },
                         );
@@ -194,38 +94,41 @@ class _CartScreenState extends State<CartScreen> {
             bottomNavigationBar: Container(
               color: background,
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    "Total: ${state.totalSum} so'm",
-                    style: const TextStyle(
-                      fontSize: 14,
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
+              child: Visibility(
+                visible: state.isVisible,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Total: ${state.totalSum} so'm",
+                      style: const TextStyle(
+                        fontSize: 14,
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  ElevatedButton(
-                    style: ButtonStyle(
-                      shape: MaterialStatePropertyAll(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
+                    ElevatedButton(
+                      style: ButtonStyle(
+                        shape: MaterialStatePropertyAll(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                        backgroundColor:
+                            const MaterialStatePropertyAll(Colors.blue),
+                      ),
+                      onPressed: () => toast("Coming soon..."),
+                      child: const Text(
+                        "Buyurtma berish",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.white,
                         ),
                       ),
-                      backgroundColor:
-                          const MaterialStatePropertyAll(Colors.blue),
-                    ),
-                    onPressed: () => toast("Coming soon..."),
-                    child: const Text(
-                      "Buyurtma berish",
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                      ),
-                    ),
-                  )
-                ],
+                    )
+                  ],
+                ),
               ),
             ),
           );

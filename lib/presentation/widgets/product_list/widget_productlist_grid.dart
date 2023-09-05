@@ -1,5 +1,5 @@
 import 'package:asaxiy_clone/data/model/models.dart';
-import 'package:asaxiy_clone/presentation/widgets/widget_product_item.dart';
+import 'package:asaxiy_clone/presentation/widgets/product_list/widget_product_item.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 

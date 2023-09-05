@@ -17,6 +17,8 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         await _countTotalSum(event, emit);
       } else if (event is _TotalCount) {
         await _countTotalCount(event, emit);
+      } else if (event is _ChangeBNvisibility) {
+        await _changeVisibility(event, emit);
       }
     });
   }
@@ -36,5 +38,10 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   Future<void> _countTotalCount(
       _TotalCount event, Emitter<CartState> emit) async {
     emit(state.copyWith(totalCount: event.count));
+  }
+
+  Future<void> _changeVisibility(
+      _ChangeBNvisibility event, Emitter<CartState> emit) async {
+    emit(state.copyWith(isVisible: event.isVisible));
   }
 }

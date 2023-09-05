@@ -5,8 +5,8 @@ import 'package:asaxiy_clone/presentation/screens/product_list/product_list_scre
 import 'package:asaxiy_clone/presentation/shimmer/shimmer_categories.dart';
 import 'package:asaxiy_clone/presentation/shimmer/shimmer_offers.dart';
 import 'package:asaxiy_clone/presentation/widgets/widget_appbar.dart';
-import 'package:asaxiy_clone/presentation/widgets/widget_categories.dart';
-import 'package:asaxiy_clone/presentation/widgets/widget_offer.dart';
+import 'package:asaxiy_clone/presentation/widgets/home/widget_categories.dart';
+import 'package:asaxiy_clone/presentation/widgets/home/widget_offer.dart';
 import 'package:asaxiy_clone/theme/colors.dart';
 import 'package:asaxiy_clone/utils/constants.dart';
 import 'package:asaxiy_clone/utils/network_call_handle.dart';

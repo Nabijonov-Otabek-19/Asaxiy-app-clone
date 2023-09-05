@@ -5,5 +5,6 @@ class CartState with _$CartState {
   const factory CartState.initial({
     @Default(0) int totalSum,
     @Default(0) int totalCount,
-}) = _Initial;
+    @Default(false) bool isVisible,
+  }) = _Initial;
 }

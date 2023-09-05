@@ -6,4 +6,7 @@ class CartEvent with _$CartEvent {
       _TotalSum;
 
   const factory CartEvent.totalCount(int count) = _TotalCount;
+
+  const factory CartEvent.changeBNvisibility(bool isVisible) =
+      _ChangeBNvisibility;
 }

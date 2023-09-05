@@ -57,7 +57,7 @@ class ShimmerCategories extends StatelessWidget {
                         baseColor: Colors.grey.withOpacity(baseColor),
                         highlightColor: Colors.grey.withOpacity(highlightColor),
                         child: Container(
-                          width: 20,
+                          width: 30,
                           height: 4,
                           color: Colors.white,
                         ),

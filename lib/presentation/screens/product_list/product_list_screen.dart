@@ -4,7 +4,7 @@ import 'package:asaxiy_clone/domain/repository/repository.dart';
 import 'package:asaxiy_clone/presentation/screens/details/detail_screen.dart';
 import 'package:asaxiy_clone/presentation/screens/product_list/bloc/product_list_bloc.dart';
 import 'package:asaxiy_clone/presentation/shimmer/shimmer_productlist_grid.dart';
-import 'package:asaxiy_clone/presentation/widgets/widget_productlist_grid.dart';
+import 'package:asaxiy_clone/presentation/widgets/product_list/widget_productlist_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

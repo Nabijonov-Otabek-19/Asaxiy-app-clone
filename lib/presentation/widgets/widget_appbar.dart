@@ -16,6 +16,7 @@ PreferredSizeWidget widgetAppBarHomeMenu(String icon) {
       leading: const Icon(Icons.search),
       textStyle: MaterialStatePropertyAll(TextStyle(color: gray)),
       onChanged: (value) {},
+      backgroundColor: const MaterialStatePropertyAll(Colors.white),
       surfaceTintColor: const MaterialStatePropertyAll(Colors.white),
       elevation: const MaterialStatePropertyAll(0.5),
       shape: MaterialStatePropertyAll(
