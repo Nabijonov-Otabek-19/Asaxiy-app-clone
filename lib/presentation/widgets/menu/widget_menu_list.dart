@@ -1,8 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../../data/model/models.dart';
-import '../../theme/colors.dart';
+import '../../../data/model/models.dart';
+import '../../../theme/colors.dart';
 
 Widget widgetMenuList(List<MenuModel> list, Function(String category) onTap) {
   final controller = ScrollController();

@@ -1,6 +1,6 @@
 import 'package:asaxiy_clone/data/model/models.dart';
 import 'package:asaxiy_clone/presentation/screens/details/bloc/details_bloc.dart';
-import 'package:asaxiy_clone/presentation/widgets/widget_detail_img_slider.dart';
+import 'package:asaxiy_clone/presentation/widgets/details/widget_detail_img_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

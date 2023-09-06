@@ -2,9 +2,10 @@ import 'package:asaxiy_clone/domain/repository/repository.dart';
 import 'package:asaxiy_clone/main_provider.dart';
 import 'package:asaxiy_clone/presentation/screens/home/bloc/home_bloc.dart';
 import 'package:asaxiy_clone/presentation/screens/product_list/product_list_screen.dart';
+import 'package:asaxiy_clone/presentation/screens/search/search_screen.dart';
 import 'package:asaxiy_clone/presentation/shimmer/shimmer_categories.dart';
 import 'package:asaxiy_clone/presentation/shimmer/shimmer_offers.dart';
-import 'package:asaxiy_clone/presentation/widgets/widget_appbar.dart';
+import 'package:asaxiy_clone/presentation/widgets/home/widget_appbar.dart';
 import 'package:asaxiy_clone/presentation/widgets/home/widget_categories.dart';
 import 'package:asaxiy_clone/presentation/widgets/home/widget_offer.dart';
 import 'package:asaxiy_clone/theme/colors.dart';
@@ -44,7 +45,19 @@ class _HomeScreenState extends State<HomeScreen> {
       child: BlocBuilder<HomeBloc, HomeState>(
         builder: (context, state) {
           return Scaffold(
-            appBar: widgetAppBarHomeMenu("assets/images/ic_document.png"),
+            appBar: widgetAppBarHome(
+              onSearchTap: () {
+                // navigate to search screen
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SearchScreen(),
+                    ));
+              },
+              onIconTap: () {
+                // navigate to Blog screen
+              },
+            ),
             body: Container(
               padding: const EdgeInsets.symmetric(vertical: 8),
               width: double.infinity,

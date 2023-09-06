@@ -3,7 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../theme/colors.dart';
+import '../../../theme/colors.dart';
 
 Widget widgetDetailImageSlider(List<String> imgList, double itemWidth,
     double itemHeight, Function(int index) indexChange, int activeIndex) {

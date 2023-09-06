@@ -1,9 +1,11 @@
-import 'package:asaxiy_clone/presentation/widgets/widget_menu_list.dart';
+import 'package:asaxiy_clone/presentation/screens/search/search_screen.dart';
+import 'package:asaxiy_clone/presentation/widgets/menu/widget_menu_list.dart';
 import 'package:flutter/material.dart';
 
 import '../../../theme/colors.dart';
 import '../../../utils/constants.dart';
-import '../../widgets/widget_appbar.dart';
+import '../../widgets/home/widget_appbar.dart';
+import '../../widgets/menu/widget_appbar.dart';
 import '../product_list/product_list_screen.dart';
 
 class MenuScreen extends StatefulWidget {
@@ -27,7 +29,19 @@ class _MenuScreenState extends State<MenuScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: widgetAppBarHomeMenu("assets/images/ic_notification.png"),
+      appBar: widgetAppBarMenu(
+        onSearchTap: () {
+          // navigate to search screen
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const SearchScreen(),
+              ));
+        },
+        onIconTap: () {
+          // navigate to Blog screen
+        },
+      ),
       body: Container(
         color: background,
         child: widgetMenuList(categoryBolimlar, (category) {
