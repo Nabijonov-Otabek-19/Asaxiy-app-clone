@@ -21,7 +21,6 @@ class _SearchScreenState extends State<SearchScreen> {
   void dispose() {
     _searchBarController.dispose();
     _searchFocusNode.dispose();
-    _bloc.close();
     super.dispose();
   }
 

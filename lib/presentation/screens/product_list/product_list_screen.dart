@@ -37,7 +37,6 @@ class _ProductListScreenState extends State<ProductListScreen> {
 
   @override
   void dispose() {
-    _bloc.close();
     _searchBarController.dispose();
     _searchFocusNode.dispose();
     _scrollController.dispose();

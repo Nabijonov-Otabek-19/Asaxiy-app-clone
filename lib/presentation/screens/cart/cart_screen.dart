@@ -24,12 +24,6 @@ class _CartScreenState extends State<CartScreen> {
   final scrollController = ScrollController();
 
   @override
-  void dispose() {
-    _bloc.close();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => _bloc,

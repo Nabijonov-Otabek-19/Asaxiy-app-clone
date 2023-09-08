@@ -23,7 +23,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   void dispose() {
-    _bloc.close();
     _scrollController.dispose();
     super.dispose();
   }
