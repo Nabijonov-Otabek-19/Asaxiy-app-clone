@@ -19,19 +19,19 @@ mixin _$ProductListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String category) getProducts,
-    required TResult Function(ProductModelDB modelDB) addToCart,
+    required TResult Function(ProductModel model) addToCart,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String category)? getProducts,
-    TResult? Function(ProductModelDB modelDB)? addToCart,
+    TResult? Function(ProductModel model)? addToCart,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String category)? getProducts,
-    TResult Function(ProductModelDB modelDB)? addToCart,
+    TResult Function(ProductModel model)? addToCart,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -140,7 +140,7 @@ class _$_GetProducts implements _GetProducts {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String category) getProducts,
-    required TResult Function(ProductModelDB modelDB) addToCart,
+    required TResult Function(ProductModel model) addToCart,
   }) {
     return getProducts(category);
   }
@@ -149,7 +149,7 @@ class _$_GetProducts implements _GetProducts {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String category)? getProducts,
-    TResult? Function(ProductModelDB modelDB)? addToCart,
+    TResult? Function(ProductModel model)? addToCart,
   }) {
     return getProducts?.call(category);
   }
@@ -158,7 +158,7 @@ class _$_GetProducts implements _GetProducts {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String category)? getProducts,
-    TResult Function(ProductModelDB modelDB)? addToCart,
+    TResult Function(ProductModel model)? addToCart,
     required TResult orElse(),
   }) {
     if (getProducts != null) {
@@ -214,7 +214,7 @@ abstract class _$$_AddToCartCopyWith<$Res> {
           _$_AddToCart value, $Res Function(_$_AddToCart) then) =
       __$$_AddToCartCopyWithImpl<$Res>;
   @useResult
-  $Res call({ProductModelDB modelDB});
+  $Res call({ProductModel model});
 }
 
 /// @nodoc
@@ -228,13 +228,13 @@ class __$$_AddToCartCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? modelDB = null,
+    Object? model = null,
   }) {
     return _then(_$_AddToCart(
-      null == modelDB
-          ? _value.modelDB
-          : modelDB // ignore: cast_nullable_to_non_nullable
-              as ProductModelDB,
+      null == model
+          ? _value.model
+          : model // ignore: cast_nullable_to_non_nullable
+              as ProductModel,
     ));
   }
 }
@@ -242,14 +242,14 @@ class __$$_AddToCartCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AddToCart implements _AddToCart {
-  const _$_AddToCart(this.modelDB);
+  const _$_AddToCart(this.model);
 
   @override
-  final ProductModelDB modelDB;
+  final ProductModel model;
 
   @override
   String toString() {
-    return 'ProductListEvent.addToCart(modelDB: $modelDB)';
+    return 'ProductListEvent.addToCart(model: $model)';
   }
 
   @override
@@ -257,11 +257,11 @@ class _$_AddToCart implements _AddToCart {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AddToCart &&
-            (identical(other.modelDB, modelDB) || other.modelDB == modelDB));
+            (identical(other.model, model) || other.model == model));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, modelDB);
+  int get hashCode => Object.hash(runtimeType, model);
 
   @JsonKey(ignore: true)
   @override
@@ -273,29 +273,29 @@ class _$_AddToCart implements _AddToCart {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String category) getProducts,
-    required TResult Function(ProductModelDB modelDB) addToCart,
+    required TResult Function(ProductModel model) addToCart,
   }) {
-    return addToCart(modelDB);
+    return addToCart(model);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String category)? getProducts,
-    TResult? Function(ProductModelDB modelDB)? addToCart,
+    TResult? Function(ProductModel model)? addToCart,
   }) {
-    return addToCart?.call(modelDB);
+    return addToCart?.call(model);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String category)? getProducts,
-    TResult Function(ProductModelDB modelDB)? addToCart,
+    TResult Function(ProductModel model)? addToCart,
     required TResult orElse(),
   }) {
     if (addToCart != null) {
-      return addToCart(modelDB);
+      return addToCart(model);
     }
     return orElse();
   }
@@ -333,9 +333,9 @@ class _$_AddToCart implements _AddToCart {
 }
 
 abstract class _AddToCart implements ProductListEvent {
-  const factory _AddToCart(final ProductModelDB modelDB) = _$_AddToCart;
+  const factory _AddToCart(final ProductModel model) = _$_AddToCart;
 
-  ProductModelDB get modelDB;
+  ProductModel get model;
   @JsonKey(ignore: true)
   _$$_AddToCartCopyWith<_$_AddToCart> get copyWith =>
       throw _privateConstructorUsedError;

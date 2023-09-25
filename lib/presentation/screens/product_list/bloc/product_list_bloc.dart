@@ -43,9 +43,11 @@ class ProductListBloc extends Bloc<ProductListEvent, ProductListState> {
   Future<void> _addToCart(
       _AddToCart event, Emitter<ProductListState> emit) async {
     final box = di.get<DB>().box;
+
     // Check if a model with the same id already exists
+    final cartModelId = (event.model.categoryName + event.model.id.toString());
     final ProductModelDB existingModel = box.values.firstWhere(
-        (model) => model.id == event.modelDB.id,
+        (model) => model.id == cartModelId,
         orElse: () => ProductModelDB("", "", "", 0, 0, "", [], ""));
 
     if (existingModel.id.isNotEmpty) {
@@ -54,14 +56,14 @@ class ProductListBloc extends Bloc<ProductListEvent, ProductListState> {
       toast("Already added to cart");
     } else {
       await di.get<DB>().box.add(ProductModelDB(
-            event.modelDB.id,
-            event.modelDB.title,
-            event.modelDB.description,
-            event.modelDB.price,
-            event.modelDB.stars,
-            event.modelDB.state,
-            event.modelDB.images,
-            event.modelDB.categoryName,
+            cartModelId,
+            event.model.title,
+            event.model.description,
+            event.model.price,
+            event.model.stars,
+            event.model.state,
+            event.model.images,
+            event.model.categoryName,
           ));
       toast("Product is added to cart");
     }

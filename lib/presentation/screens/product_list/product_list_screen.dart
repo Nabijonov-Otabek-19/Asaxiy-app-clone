@@ -1,5 +1,3 @@
-import 'package:asaxiy_clone/data/model_db/product_model_db.dart';
-import 'package:asaxiy_clone/data/source/local/local_db.dart';
 import 'package:asaxiy_clone/domain/repository/repository.dart';
 import 'package:asaxiy_clone/presentation/screens/details/detail_screen.dart';
 import 'package:asaxiy_clone/presentation/screens/product_list/bloc/product_list_bloc.dart';
@@ -136,31 +134,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
                                 ));
                           },
                           (cartModel) async {
-                            // add to cart
-                            final box = di.get<DB>().box;
-                            // Check if a model with the same id already exists
-                            final cartModelId = (cartModel.categoryName +
-                                cartModel.id.toString());
-                            final ProductModelDB existingModel = box.values
-                                .firstWhere((model) => model.id == cartModelId,
-                                    orElse: () => ProductModelDB(
-                                        "", "", "", 0, 0, "", [], ""));
-
-                            if (existingModel.id.isNotEmpty) {
-                              // Handle duplicate model
-                              // You can choose to update the existing model or skip adding the duplicate
-                            } else {
-                              _bloc.add(ProductListEvent.addToCart(
-                                  ProductModelDB(
-                                      cartModelId,
-                                      cartModel.title,
-                                      cartModel.description,
-                                      cartModel.price,
-                                      cartModel.stars,
-                                      cartModel.state,
-                                      cartModel.images,
-                                      cartModel.categoryName)));
-                            }
+                            _bloc.add(ProductListEvent.addToCart(cartModel));
                           },
                         ),
                       ],

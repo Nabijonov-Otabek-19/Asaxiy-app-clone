@@ -4,5 +4,5 @@ part of 'product_list_bloc.dart';
 class ProductListEvent with _$ProductListEvent {
   const factory ProductListEvent.getProducts(String category) = _GetProducts;
 
-  const factory ProductListEvent.addToCart(ProductModelDB modelDB) = _AddToCart;
+  const factory ProductListEvent.addToCart(ProductModel model) = _AddToCart;
 }
