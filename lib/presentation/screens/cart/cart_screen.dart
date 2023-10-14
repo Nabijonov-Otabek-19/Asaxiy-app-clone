@@ -68,11 +68,12 @@ class _CartScreenState extends State<CartScreen> {
                             return WidgetSavedProductItem(
                               data: data,
                               onDeleteTap: () {
+                                // delete item
                                 di.get<DB>().box.delete(key);
-                                toast("Item deleted");
                               },
                               onMinusTap: () {
                                 // minus
+                                _bloc.add(CartEvent.minusItem(data.count));
                                 toast("Minus");
                               },
                               onPlusTap: () {

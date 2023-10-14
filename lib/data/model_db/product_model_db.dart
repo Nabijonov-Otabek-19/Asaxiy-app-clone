@@ -20,9 +20,12 @@ class ProductModelDB {
   final List<String> images;
   @HiveField(7)
   final String categoryName;
+  @HiveField(8)
+  final int count;
 
   ProductModelDB(this.id, this.title, this.description, this.price, this.stars,
-      this.state, this.images, this.categoryName);
+      this.state, this.images, this.categoryName,
+      {this.count = 1});
 
   @override
   bool operator ==(other) {

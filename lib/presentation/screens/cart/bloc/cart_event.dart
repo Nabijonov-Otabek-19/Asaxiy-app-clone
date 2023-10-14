@@ -9,4 +9,8 @@ class CartEvent with _$CartEvent {
 
   const factory CartEvent.changeBNvisibility(bool isVisible) =
       _ChangeBNvisibility;
+
+  const factory CartEvent.plusItem(int count) = _PlusItem;
+
+  const factory CartEvent.minusItem(int count) = _MinusItem;
 }

@@ -25,13 +25,14 @@ class ProductModelDBAdapter extends TypeAdapter<ProductModelDB> {
       fields[5] as String,
       (fields[6] as List).cast<String>(),
       fields[7] as String,
+      count: fields[8] as int,
     );
   }
 
   @override
   void write(BinaryWriter writer, ProductModelDB obj) {
     writer
-      ..writeByte(8)
+      ..writeByte(9)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -47,7 +48,9 @@ class ProductModelDBAdapter extends TypeAdapter<ProductModelDB> {
       ..writeByte(6)
       ..write(obj.images)
       ..writeByte(7)
-      ..write(obj.categoryName);
+      ..write(obj.categoryName)
+      ..writeByte(8)
+      ..write(obj.count);
   }
 
   @override

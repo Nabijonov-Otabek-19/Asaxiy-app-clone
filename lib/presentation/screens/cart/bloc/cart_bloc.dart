@@ -13,12 +13,22 @@ part 'cart_bloc.freezed.dart';
 class CartBloc extends Bloc<CartEvent, CartState> {
   CartBloc() : super(const CartState.initial()) {
     on<CartEvent>((event, emit) async {
-      if (event is _TotalSum) {
-        await _countTotalSum(event, emit);
-      } else if (event is _TotalCount) {
-        await _countTotalCount(event, emit);
-      } else if (event is _ChangeBNvisibility) {
-        await _changeVisibility(event, emit);
+      switch (event) {
+        case _TotalSum():
+          await _countTotalSum(event, emit);
+          break;
+        case _TotalCount():
+          await _countTotalCount(event, emit);
+          break;
+        case _ChangeBNvisibility():
+          await _changeVisibility(event, emit);
+          break;
+        case _PlusItem():
+          await _plusItem(event, emit);
+          break;
+        case _MinusItem():
+          await _minusItem(event, emit);
+          break;
       }
     });
   }
@@ -43,5 +53,13 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   Future<void> _changeVisibility(
       _ChangeBNvisibility event, Emitter<CartState> emit) async {
     emit(state.copyWith(isVisible: event.isVisible));
+  }
+
+  Future<void> _plusItem(_PlusItem event, Emitter<CartState> emit) async {
+    // update count member
+  }
+
+  Future<void> _minusItem(_MinusItem event, Emitter<CartState> emit) async {
+    // update count member
   }
 }
