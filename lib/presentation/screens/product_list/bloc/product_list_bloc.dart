@@ -20,10 +20,13 @@ class ProductListBloc extends Bloc<ProductListEvent, ProductListState> {
 
   ProductListBloc(this.repository) : super(const ProductListState.initial()) {
     on<ProductListEvent>((event, emit) async {
-      if (event is _GetProducts) {
-        await _getProducts(event, emit);
-      } else if (event is _AddToCart) {
-        await _addToCart(event, emit);
+      switch (event) {
+        case _GetProducts():
+          await _getProducts(event, emit);
+          break;
+        case _AddToCart():
+          await _addToCart(event, emit);
+          break;
       }
     });
   }

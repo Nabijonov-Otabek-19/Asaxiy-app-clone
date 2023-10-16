@@ -16,12 +16,16 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   HomeBloc(this.repository) : super(const HomeState.state()) {
     on<HomeEvent>((event, emit) async {
-      if (event is _LoadOffers) {
-        await _loadOffers(event, emit);
-      } else if (event is _LoadProducts) {
-        await _loadProducts(event, emit);
-      } else if (event is _ChangeDotIndex) {
-        emit(state.copyWith(activeIndex: event.index));
+      switch (event) {
+        case _LoadOffers():
+          await _loadOffers(event, emit);
+          break;
+        case _LoadProducts():
+          await _loadProducts(event, emit);
+          break;
+        case _ChangeDotIndex():
+          emit(state.copyWith(activeIndex: event.index));
+          break;
       }
     });
   }
