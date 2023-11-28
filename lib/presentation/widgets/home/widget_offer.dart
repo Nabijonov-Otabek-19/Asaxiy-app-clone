@@ -6,8 +6,11 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../data/model/offer_model.dart';
 import '../../../theme/colors.dart';
 
-Widget widgetOffer(List<OfferModel> offerList, Function(int index) indexChange,
-    int activeIndex) {
+Widget widgetOffer(
+  List<OfferModel> offerList,
+  Function(int index) indexChange,
+  int activeIndex,
+) {
   final CarouselController carouselController = CarouselController();
   return Column(
     children: [
