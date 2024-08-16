@@ -56,44 +56,51 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.symmetric(vertical: 8),
               width: double.infinity,
               color: background,
-              child: Builder(builder: (context) {
-                if (state.status == Status.LOADING) {
-                  return const Column(
+              child: Builder(
+                builder: (context) {
+                  if (state.status == Status.LOADING) {
+                    return const Column(
+                      children: [
+                        ShimmerOffers(),
+                        ShimmerCategories(),
+                      ],
+                    );
+                  } else if (state.status == Status.ERROR) {
+                    return Center(
+                      child: Text(
+                        state.error,
+                        style: const TextStyle(
+                          fontSize: 30,
+                          color: Colors.black,
+                        ),
+                      ),
+                    );
+                  }
+                  return Column(
                     children: [
-                      ShimmerOffers(),
-                      ShimmerCategories(),
-                    ],
-                  );
-                } else if (state.status == Status.ERROR) {
-                  return Center(
-                    child: Text(
-                      state.error,
-                      style: const TextStyle(fontSize: 30, color: Colors.black),
-                    ),
-                  );
-                }
-                return Column(
-                  children: [
-                    widgetOffer(state.offerList, (index) {
-                      _bloc.add(HomeEvent.changeDotIndex(index));
-                    }, state.activeIndex),
-                    widgetCategories(
-                      categories,
-                      (category) {
-                        if (category == "Bo'limlar") {
-                          context.read<MainProvider>().onItemTapped(1);
-                        } else {
-                          Navigator.push(
+                      widgetOffer(state.offerList, (index) {
+                        _bloc.add(HomeEvent.changeDotIndex(index));
+                      }, state.activeIndex),
+                      widgetCategories(
+                        categories,
+                        (category) {
+                          if (category == "Bo'limlar") {
+                            context.read<MainProvider>().onItemTapped(1);
+                          } else {
+                            Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) =>
-                                      ProductListScreen(category: category)));
-                        }
-                      },
-                    ),
-                  ],
-                );
-              }),
+                                builder: (context) =>
+                                    ProductListScreen(category: category),
+                              ),
+                            );
+                          }
+                        },
+                      ),
+                    ],
+                  );
+                },
+              ),
             ),
           );
         },

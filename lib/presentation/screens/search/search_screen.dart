@@ -33,24 +33,27 @@ class _SearchScreenState extends State<SearchScreen> {
           return Scaffold(
             appBar: AppBar(
               title: SearchBar(
-                constraints: const BoxConstraints(maxHeight: 42, minHeight: 42),
-                padding:
-                    const MaterialStatePropertyAll(EdgeInsets.only(left: 8)),
+                constraints: const BoxConstraints(
+                  maxHeight: 42,
+                  minHeight: 42,
+                ),
+                padding: const WidgetStatePropertyAll(EdgeInsets.only(left: 8)),
                 hintText: "Search",
                 focusNode: _searchFocusNode,
                 controller: _searchBarController,
                 leading: const Icon(Icons.search),
-                textStyle: MaterialStatePropertyAll(TextStyle(color: gray)),
+                textStyle: WidgetStatePropertyAll(TextStyle(color: gray)),
                 onChanged: (value) {
                   // get value and get products
                   logger(value);
                 },
-                backgroundColor: const MaterialStatePropertyAll(Colors.white),
-                surfaceTintColor: const MaterialStatePropertyAll(Colors.white),
-                elevation: const MaterialStatePropertyAll(0.5),
-                shape: MaterialStatePropertyAll(
+                backgroundColor: const WidgetStatePropertyAll(Colors.white),
+                surfaceTintColor: const WidgetStatePropertyAll(Colors.white),
+                elevation: const WidgetStatePropertyAll(0.5),
+                shape: WidgetStatePropertyAll(
                   RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8)),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
                 ),
               ),
             ),

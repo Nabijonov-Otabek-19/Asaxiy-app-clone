@@ -81,9 +81,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         color: Colors.white,
                         surfaceTintColor: Colors.white,
                         margin: const EdgeInsets.symmetric(
-                            horizontal: 16, vertical: 8),
+                          horizontal: 16,
+                          vertical: 8,
+                        ),
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8)),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
                         child: const Padding(
                           padding: EdgeInsets.all(14),
                           child: Row(

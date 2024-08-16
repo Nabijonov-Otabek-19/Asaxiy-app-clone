@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 import '../../../theme/colors.dart';
 import '../../../utils/constants.dart';
-import '../../widgets/home/widget_appbar.dart';
 import '../../widgets/menu/widget_appbar.dart';
 import '../product_list/product_list_screen.dart';
 
@@ -46,9 +45,11 @@ class _MenuScreenState extends State<MenuScreen> {
         color: background,
         child: widgetMenuList(categoryBolimlar, (category) {
           Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => ProductListScreen(category: category)));
+            context,
+            MaterialPageRoute(
+              builder: (context) => ProductListScreen(category: category),
+            ),
+          );
         }),
       ),
     );

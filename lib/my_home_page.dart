@@ -21,48 +21,49 @@ class _MyHomePageState extends State<MyHomePage> {
           index: context.watch<MainProvider>().selectedIndex,
           children: pages,
         ),
-        bottomNavigationBar: myNavBar(),
+        bottomNavigationBar: BottomNavigationBar(
+          elevation: 16,
+          iconSize: 24,
+          currentIndex: context.watch<MainProvider>().selectedIndex,
+          selectedItemColor: blue,
+          unselectedItemColor: gray,
+          selectedFontSize: 12,
+          unselectedFontSize: 12,
+          onTap: context.read<MainProvider>().onItemTapped,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              backgroundColor: Theme.of(context).primaryColor,
+              activeIcon: const Icon(Icons.home),
+              icon: const Icon(Icons.home_outlined),
+              label: "Bosh sahifa",
+            ),
+            BottomNavigationBarItem(
+              backgroundColor: Theme.of(context).primaryColor,
+              activeIcon: const Icon(Icons.menu_open_sharp),
+              icon: const Icon(Icons.menu_open_sharp),
+              label: "Bo'limlar",
+            ),
+            BottomNavigationBarItem(
+              backgroundColor: Theme.of(context).primaryColor,
+              activeIcon: const Icon(Icons.shopping_cart),
+              icon: const Icon(Icons.shopping_cart_outlined),
+              label: "Savatcha",
+            ),
+            BottomNavigationBarItem(
+              backgroundColor: Theme.of(context).primaryColor,
+              activeIcon: const Icon(Icons.shopping_bag),
+              icon: const Icon(Icons.shopping_bag_outlined),
+              label: "Buyurtmalar",
+            ),
+            BottomNavigationBarItem(
+              backgroundColor: Theme.of(context).primaryColor,
+              activeIcon: const Icon(Icons.person),
+              icon: const Icon(Icons.person_outlined),
+              label: "Profil",
+            ),
+          ],
+        ),
       ),
-    );
-  }
-
-  BottomNavigationBar myNavBar() {
-    return BottomNavigationBar(
-      elevation: 16,
-      iconSize: 24,
-      currentIndex: context.watch<MainProvider>().selectedIndex,
-      selectedItemColor: blue,
-      unselectedItemColor: gray,
-      selectedFontSize: 12,
-      unselectedFontSize: 12,
-      onTap: context.read<MainProvider>().onItemTapped,
-      items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-            backgroundColor: Theme.of(context).primaryColor,
-            activeIcon: const Icon(Icons.home),
-            icon: const Icon(Icons.home_outlined),
-            label: "Bosh sahifa"),
-        BottomNavigationBarItem(
-            backgroundColor: Theme.of(context).primaryColor,
-            activeIcon: const Icon(Icons.menu_open_sharp),
-            icon: const Icon(Icons.menu_open_sharp),
-            label: "Bo'limlar"),
-        BottomNavigationBarItem(
-            backgroundColor: Theme.of(context).primaryColor,
-            activeIcon: const Icon(Icons.shopping_cart),
-            icon: const Icon(Icons.shopping_cart_outlined),
-            label: "Savatcha"),
-        BottomNavigationBarItem(
-            backgroundColor: Theme.of(context).primaryColor,
-            activeIcon: const Icon(Icons.shopping_bag),
-            icon: const Icon(Icons.shopping_bag_outlined),
-            label: "Buyurtmalar"),
-        BottomNavigationBarItem(
-            backgroundColor: Theme.of(context).primaryColor,
-            activeIcon: const Icon(Icons.person),
-            icon: const Icon(Icons.person_outlined),
-            label: "Profil")
-      ],
     );
   }
 }

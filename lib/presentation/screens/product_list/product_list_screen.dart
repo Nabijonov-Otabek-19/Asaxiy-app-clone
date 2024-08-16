@@ -50,20 +50,23 @@ class _ProductListScreenState extends State<ProductListScreen> {
           return Scaffold(
             appBar: AppBar(
               title: SearchBar(
-                constraints: const BoxConstraints(maxHeight: 42, minHeight: 42),
-                padding:
-                    const MaterialStatePropertyAll(EdgeInsets.only(left: 8)),
+                constraints: const BoxConstraints(
+                  maxHeight: 42,
+                  minHeight: 42,
+                ),
+                padding: const WidgetStatePropertyAll(EdgeInsets.only(left: 8)),
                 hintText: "Search",
                 focusNode: _searchFocusNode,
                 controller: _searchBarController,
                 leading: const Icon(Icons.search),
-                textStyle: MaterialStatePropertyAll(TextStyle(color: gray)),
+                textStyle: WidgetStatePropertyAll(TextStyle(color: gray)),
                 onChanged: (value) {},
-                surfaceTintColor: const MaterialStatePropertyAll(Colors.white),
-                elevation: const MaterialStatePropertyAll(0.5),
-                shape: MaterialStatePropertyAll(
+                surfaceTintColor: const WidgetStatePropertyAll(Colors.white),
+                elevation: const WidgetStatePropertyAll(0.5),
+                shape: WidgetStatePropertyAll(
                   RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8)),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
                 ),
               ),
             ),
@@ -76,7 +79,10 @@ class _ProductListScreenState extends State<ProductListScreen> {
                   return Center(
                     child: Text(
                       state.error,
-                      style: const TextStyle(fontSize: 30, color: Colors.black),
+                      style: const TextStyle(
+                        fontSize: 30,
+                        color: Colors.black,
+                      ),
                     ),
                   );
                 }
@@ -92,12 +98,16 @@ class _ProductListScreenState extends State<ProductListScreen> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.symmetric(
-                              vertical: 12, horizontal: 16),
+                            vertical: 12,
+                            horizontal: 16,
+                          ),
                           child: Text(
                             widget.category,
                             textAlign: TextAlign.start,
                             style: const TextStyle(
-                                fontSize: 24, fontWeight: FontWeight.bold),
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                         Padding(

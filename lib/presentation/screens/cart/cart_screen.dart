@@ -105,13 +105,13 @@ class _CartScreenState extends State<CartScreen> {
                     ),
                     ElevatedButton(
                       style: ButtonStyle(
-                        shape: MaterialStatePropertyAll(
+                        shape: WidgetStatePropertyAll(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
                           ),
                         ),
                         backgroundColor:
-                            const MaterialStatePropertyAll(Colors.blue),
+                            const WidgetStatePropertyAll(Colors.blue),
                       ),
                       onPressed: () => toast("Coming soon..."),
                       child: const Text(

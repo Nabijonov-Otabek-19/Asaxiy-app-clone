@@ -40,7 +40,10 @@ class _DetailsScreenState extends State<DetailsScreen> {
               ],
             ),
             body: Container(
-              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+              padding: const EdgeInsets.symmetric(
+                vertical: 8,
+                horizontal: 12,
+              ),
               width: double.infinity,
               height: double.infinity,
               color: background,
@@ -125,19 +128,20 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       child: Column(
                         children: [
                           const Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Mahsulot ta'rifi",
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                  ),
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Mahsulot ta'rifi",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
                                 ),
-                                Icon(Icons.keyboard_arrow_down),
-                              ]),
+                              ),
+                              Icon(Icons.keyboard_arrow_down),
+                            ],
+                          ),
                           const SizedBox(height: 8),
                           Text(
                             widget.model.description,
@@ -157,21 +161,26 @@ class _DetailsScreenState extends State<DetailsScreen> {
             bottomNavigationBar: SizedBox(
               width: double.infinity,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 4,
+                  vertical: 8,
+                ),
                 child: Row(
                   children: [
                     IconButton(
                       style: ButtonStyle(
-                        backgroundColor: const MaterialStatePropertyAll(
+                        backgroundColor: const WidgetStatePropertyAll(
                             Colors.lightBlueAccent),
-                        shape: MaterialStatePropertyAll(
+                        shape: WidgetStatePropertyAll(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
                           ),
                         ),
                       ),
                       visualDensity: VisualDensity.comfortable,
-                      onPressed: () {},
+                      onPressed: () {
+                        //
+                      },
                       icon: Icon(
                         Icons.shopping_cart_outlined,
                         color: gray,
@@ -185,18 +194,23 @@ class _DetailsScreenState extends State<DetailsScreen> {
                           style: ButtonStyle(
                             visualDensity: VisualDensity.comfortable,
                             backgroundColor:
-                                const MaterialStatePropertyAll(Colors.amber),
-                            shape: MaterialStatePropertyAll(
+                                const WidgetStatePropertyAll(Colors.amber),
+                            shape: WidgetStatePropertyAll(
                               RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            //
+                          },
                           child: const Text(
                             "Muddatli to'lov",
                             textAlign: TextAlign.center,
-                            style: TextStyle(color: Colors.white, fontSize: 14),
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                            ),
                           ),
                         ),
                       ),
@@ -209,18 +223,23 @@ class _DetailsScreenState extends State<DetailsScreen> {
                           style: ButtonStyle(
                             visualDensity: VisualDensity.comfortable,
                             backgroundColor:
-                                const MaterialStatePropertyAll(Colors.blue),
-                            shape: MaterialStatePropertyAll(
+                                const WidgetStatePropertyAll(Colors.blue),
+                            shape: WidgetStatePropertyAll(
                               RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            //
+                          },
                           child: const Text(
                             textAlign: TextAlign.center,
                             "Buyurtma qilish",
-                            style: TextStyle(color: Colors.white, fontSize: 14),
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                            ),
                           ),
                         ),
                       ),

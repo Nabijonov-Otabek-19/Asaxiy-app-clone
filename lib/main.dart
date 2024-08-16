@@ -1,6 +1,8 @@
 import 'package:asaxiy_clone/di/di.dart';
+import 'package:asaxiy_clone/notification_handler.dart';
 import 'package:asaxiy_clone/utils/constants.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 
@@ -9,15 +11,55 @@ import 'presentation/screens/screens.dart';
 import 'theme/colors.dart';
 import 'firebase_options.dart';
 
+final navigatorKey = GlobalKey<NavigatorState>();
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  final token = await NotificationHandler().initializeNotifications();
+  print("FCM TOKEN : $token");
 
   await Hive.initFlutter();
   Hive.registerAdapter(ProductModelDBAdapter());
   await Hive.openBox<ProductModelDB>(DBNAME);
 
   diSetup(); // Set up DI
+
+  // When some error occurs,
+  // screen will show custom error widget, not red screen
+  ErrorWidget.builder = (FlutterErrorDetails errorDetails) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(title: const Text("Error")),
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              const Icon(
+                Icons.error_outline_rounded,
+                color: Colors.red,
+                size: 100,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Flexible(
+                  child: Text(
+                    kReleaseMode
+                        ? "Oops... something went wrong"
+                        : errorDetails.exception.toString(),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  };
 
   runApp(const MyApp());
 }
@@ -30,6 +72,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Asaxiy clone',
       debugShowCheckedModeBanner: false,
+      navigatorKey: navigatorKey,
       theme: ThemeData(
         primaryColor: primary,
         primaryColorDark: primaryDark,
@@ -47,9 +90,7 @@ class MyApp extends StatelessWidget {
           type: BottomNavigationBarType.fixed,
         ),
       ),
-      home: Builder(builder: (context) {
-        return const SplashScreen();
-      }),
+      home: const SplashScreen(),
     );
   }
 }
