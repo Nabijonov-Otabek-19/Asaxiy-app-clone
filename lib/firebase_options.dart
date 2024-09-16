@@ -66,4 +66,5 @@ class DefaultFirebaseOptions {
     iosClientId: '171520694865-s3pdctoq7rv8tg5podsjcg730bmfi22e.apps.googleusercontent.com',
     iosBundleId: 'uz.nabijonov.otabek.asaxiyClone',
   );
+
 }
